@@ -3,7 +3,7 @@ export default class PhotographerCard {
     this.photographer = photographer;
   }
 
-  create() {
+  getHTML() {
     const wrapper = document.createElement('article');
 
     const photographerCard = `

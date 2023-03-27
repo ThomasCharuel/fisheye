@@ -1,20 +1,25 @@
 import PhotographerApi from '../api/PhotographerApi.js';
 import createPhotographer from '../factories/photographer.js';
 
-function displayData(photographers) {
-  const photographersSection = document.querySelector('.photographer_section');
+async function getPhotographersData() {
+  const photographerApi = new PhotographerApi();
+  const photographers = await photographerApi.getPhotographers()
+    .then((photographerDatas) => photographerDatas.map(createPhotographer));
 
-  photographers.forEach((photographerData) => {
-    const photographer = createPhotographer(photographerData);
-    photographersSection.appendChild(photographer.getCardHTML());
+  return photographers;
+}
+
+function displayData(photographers) {
+  const photographersSection = document.querySelector('.photographers_section');
+
+  photographers.forEach((photographer) => {
+    photographersSection.insertAdjacentHTML('beforeend', photographer.getCardHTML());
   });
 }
 
-async function init() {
-  // Get photographers data
-  const photographerApi = new PhotographerApi();
-  const photographers = await photographerApi.get();
+async function main() {
+  const photographers = await getPhotographersData();
   displayData(photographers);
 }
 
-init();
+main();

@@ -17,12 +17,12 @@
 
 <body>
     <header class="banner">
-        <a href="/index.html"><img src="/assets/images/logo.png" class="logo"></a>
+        <a href="/index.html" class="banner__homepage-link">
+            <img src="/assets/images/logo.png" class="banner__logo">
+        </a>
     </header>
-    <main id="main">
-        <div class="photograph-header">
-            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        </div>
+    <main>
+        <header class="photographer-header"></header>
     </main>
     <div id="contact_modal">
         <div class="modal">
@@ -39,7 +39,7 @@
             </form>
         </div>
     </div>
-    <script src="/scripts/pages/photographer.js"></script>
+    <script src="/scripts/pages/photographer.js" type="module"></script>
     <script src="/scripts/utils/contactForm.js"></script>
 </body>
 

@@ -4,19 +4,18 @@ export default class PhotographerCard {
   }
 
   getHTML() {
-    const wrapper = document.createElement('article');
-
-    const photographerCard = `
-      <a href="/pages/photographer.html?id${this.photographer.getId()}">
-        <img src="${this.photographer.getPortrait()}">
-        <h2>${this.photographer.getName()}</h2>
-        <p>${this.photographer.getCity()}, ${this.photographer.getCountry()}</p>
-        <p>${this.photographer.getTagline()}</p>
-        <p>${this.photographer.getPrice()}/jour</p>
-      </a>
+    return `
+      <li>
+        <article class="photographer-card">
+          <a href="/pages/photographer.html?id=${this.photographer.getId()}" class="photographer-card__link">
+            <img src="${this.photographer.getPortrait()}" class="photographer-card__image">
+            <h2 class="photographer-card__name">${this.photographer.getName()}</h2>
+            <p class="photographer-card__location">${this.photographer.getCity()}, ${this.photographer.getCountry()}</p>
+            <p class="photographer-card__tagline">${this.photographer.getTagline()}</p>
+            <p class="photographer-card__price">${this.photographer.getPrice()}/jour</p>
+          </a>
+        </article>
+      </li>
     `;
-
-    wrapper.innerHTML = photographerCard;
-    return wrapper;
   }
 }

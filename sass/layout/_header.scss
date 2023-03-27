@@ -6,11 +6,17 @@
   height: 90px;
   padding: 0px 100px;
 
-  .logo {
+  &__homepage-link {
+    display: flex;
+  }
+
+  &__logo {
     height: 50px;
   }
 
-  h1 {
+  &__title {
     color: $color-primary;
+    font-size: 36px;
+    font-weight: $font-weight-regular;
   }
 }

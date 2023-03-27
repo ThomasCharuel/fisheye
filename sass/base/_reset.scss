@@ -1,0 +1,34 @@
+body {
+  box-sizing: border-box;
+  margin: unset;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+p, h1, h2, h3 {
+  margin: unset;
+}
+
+ul, ol {
+  margin: unset;
+  padding: unset;
+  list-style-type: none;
+}
+
+a {
+  color: unset;
+  text-decoration: unset;
+}
+
+button {
+  border: unset;
+  background-color: unset;
+  padding: unset;
+  text-align: unset;
+  font-family: unset;
+  font-size: unset;
+}

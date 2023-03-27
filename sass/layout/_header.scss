@@ -1,0 +1,16 @@
+.banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  padding: 0px 100px;
+
+  .logo {
+    height: 50px;
+  }
+
+  h1 {
+    color: $color-primary;
+  }
+}

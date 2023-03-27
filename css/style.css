@@ -202,6 +202,23 @@ body {
   border-radius: 50%;
 }
 
+.photographer-info-section {
+  position: fixed;
+  bottom: 0;
+  right: 40px;
+  background-color: #DB8876;
+  border-radius: 5px 5px 0px 0px;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  font-weight: 500;
+  font-size: 24px;
+}
+.photographer-info-section__likes-counter i {
+  padding-left: 6px;
+}
+
 #contact_modal {
   display: none;
 }

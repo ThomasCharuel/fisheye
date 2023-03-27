@@ -15,6 +15,9 @@ async function getPhotographerData() {
 function displayData(photographer) {
   const photographerHeader = document.querySelector('.photographer-header');
   photographerHeader.innerHTML = photographer.getHeaderHTML();
+
+  const photographerInfoSection = document.querySelector('.photographer-info-section');
+  photographerInfoSection.innerHTML = photographer.getInfoSectionHTML();
 }
 
 async function main() {

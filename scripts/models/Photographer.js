@@ -36,4 +36,8 @@ export default class Photographer {
   getPortrait() {
     return `/assets/images/photographers/${this.id}/${this.portrait}`;
   }
+
+  getLikeCount() {
+    return 200000; // To dev
+  }
 }

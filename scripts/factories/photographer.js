@@ -6,7 +6,6 @@ export default function createPhotographer(data) {
   const photographer = new Photographer(data);
 
   photographer.getCardHTML = () => new PhotographerCard(photographer).getHTML();
-
   photographer.getHeaderHTML = () => new PhotographerHeader(photographer).getHTML();
 
   return photographer;

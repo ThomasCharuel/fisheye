@@ -1,0 +1,18 @@
+.cta-btn {
+  color: $color-white;
+  text-align: center;
+  font-size: 18px;
+  font-weight: $font-weight-bold;
+  color: white;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: $color-primary;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    color: $color-black;
+    background-color: $color-secondary;
+  }
+}

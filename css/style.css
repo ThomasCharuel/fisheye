@@ -38,6 +38,24 @@ body {
   font-weight: 400;
 }
 
+.cta-btn {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901C1C;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cta-btn:hover, .cta-btn:focus {
+  color: #000000;
+  background-color: #D3573C;
+}
+
 .modal {
   border-radius: 5px;
   background-color: #DB8876;
@@ -175,16 +193,7 @@ body {
 }
 .photographer-header__contact-btn {
   justify-self: center;
-  text-align: center;
   font-size: 20px;
-  font-weight: 700;
-  color: white;
-  width: 170px;
-  height: 70px;
-  border: none;
-  background-color: #901C1C;
-  border-radius: 5px;
-  cursor: pointer;
 }
 .photographer-header__image {
   justify-self: end;

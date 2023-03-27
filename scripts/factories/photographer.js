@@ -1,7 +1,7 @@
 function photographerFactory(data) {
-  const { name, portrait } = data;
+  const { id, name, portrait } = data;
 
-  const picture = `assets/photographers/${portrait}`;
+  const picture = `assets/images/photographers/${id}/${portrait}`;
 
   function getUserCardDOM() {
     const article = document.createElement('article');

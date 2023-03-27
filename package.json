@@ -1,0 +1,24 @@
+{
+  "name": "fisheye",
+  "version": "1.0.0",
+  "description": "Accessible website for photographers",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass ./sass/main.scss:./css/style.css -w",
+    "sass-build": "sass ./sass/main.scss:./public/css/style.css --style compressed",
+    "build": "npm run sass-build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasCharuel/fisheye.git"
+  },
+  "author": "Thomas Charuel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThomasCharuel/fisheye/issues"
+  },
+  "homepage": "https://github.com/ThomasCharuel/fisheye#readme",
+  "dependencies": {
+    "sass": "^1.60.0"
+  }
+}

@@ -16,6 +16,35 @@
   }
 }
 
+.like-btn {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+
+  .outline-heart, .filled-heart {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .outline-heart {
+    transition: opacity 0.2s ease-in-out;
+  }
+  .filled-heart {
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+  }
+  &:hover {
+    .outline-heart {
+      opacity: 0;
+    }
+    .filled-heart {
+      opacity: 1;
+    }
+  }
+}
+
 .dropdown-btn {
   &__menu-item {
     position: relative;

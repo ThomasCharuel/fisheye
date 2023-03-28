@@ -55,6 +55,32 @@ body {
   background-color: #D3573C;
 }
 
+.like-btn {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+}
+.like-btn .outline-heart, .like-btn .filled-heart {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.like-btn .outline-heart {
+  transition: opacity 0.2s ease-in-out;
+}
+.like-btn .filled-heart {
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+.like-btn:hover .outline-heart {
+  opacity: 0;
+}
+.like-btn:hover .filled-heart {
+  opacity: 1;
+}
+
 .dropdown-btn__menu-item {
   position: relative;
   padding: 20px;
@@ -347,8 +373,10 @@ main {
   margin-left: 5px;
   white-space: nowrap;
   font-weight: 500;
+  display: flex;
+  align-items: center;
 }
-.media-card__likes i {
+.media-card__likes-btn {
   margin-left: 5px;
 }
 

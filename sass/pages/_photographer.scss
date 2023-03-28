@@ -145,7 +145,10 @@ main {
     margin-left: 5px;
     white-space: nowrap;
     font-weight: $font-weight-medium;
-    i {
+    display: flex;
+    align-items: center;
+
+    &-btn {
       margin-left: 5px;
     }
   }

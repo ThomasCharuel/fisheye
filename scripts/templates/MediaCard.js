@@ -33,7 +33,13 @@ export default class MediaCard {
           ${thumbnailHTML}
           <div class="media-card__info-wrapper">
             <p class="media-card__title">${this.media.getTitle()}</p>
-            <p class="media-card__likes">${this.media.getLikes()}<i class="fa-solid fa-heart"></i></p>
+            <p class="media-card__likes">
+              ${this.media.getLikes()}
+              <span class="media-card__likes-btn like-btn">
+                <i class="outline-heart fa-regular fa-heart"></i>
+                <i class="filled-heart fa-solid fa-heart"></i>
+              </span>
+            </p>
           </div>
         </article>
       </li>

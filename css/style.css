@@ -219,6 +219,15 @@ body {
   padding-left: 6px;
 }
 
+.medias-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.media-card__thumbnail {
+  width: 100%;
+}
+
 #contact_modal {
   display: none;
 }

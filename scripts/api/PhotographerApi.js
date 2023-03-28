@@ -13,7 +13,7 @@ export default class PhotographerApi extends Api {
   async getPhotographer(photographerId) {
     const photographers = await this.getPhotographers();
     const photographer = photographers
-      .filter((data) => String(data.id) === String(photographerId))[0];
+      .filter((data) => data.id === photographerId)[0];
 
     return photographer;
   }

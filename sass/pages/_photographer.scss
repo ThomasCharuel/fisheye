@@ -57,6 +57,19 @@
   }
 }
 
+.medias-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.media-card {
+  &__thumbnail {
+    width: 100%;
+  }
+}
+
+
+
 #contact_modal {
   display: none;
 }

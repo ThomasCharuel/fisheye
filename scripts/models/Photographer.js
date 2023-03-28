@@ -7,6 +7,7 @@ export default class Photographer {
     this.tagline = data.tagline;
     this.price = data.price;
     this.portrait = data.portrait;
+    this.medias = [];
   }
 
   getName() {
@@ -38,6 +39,14 @@ export default class Photographer {
   }
 
   getLikeCount() {
-    return 200000; // To dev
+    return this.medias.map((media) => media.getLikes()).reduce((a, b) => a + b);
+  }
+
+  getMedias() {
+    return this.medias;
+  }
+
+  setMedias(medias) {
+    this.medias = medias;
   }
 }

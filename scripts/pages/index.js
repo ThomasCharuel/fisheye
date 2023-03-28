@@ -10,7 +10,7 @@ async function getPhotographersData() {
 }
 
 function displayData(photographers) {
-  const photographersSection = document.querySelector('.photographers_section');
+  const photographersSection = document.querySelector('.photographers-section');
 
   photographers.forEach((photographer) => {
     photographersSection.insertAdjacentHTML('beforeend', photographer.getCardHTML());

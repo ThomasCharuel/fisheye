@@ -17,6 +17,18 @@
 }
 
 .dropdown-btn {
+  &__menu-item {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: unset;
+
+    &[checked] {
+      display: none;
+    }
+  }
   &__cta {
     border-radius: 5px;
     &::before {
@@ -28,23 +40,6 @@
     &-icon {
       font-size: 20px;
       transition: transform 0.2s ease-in-out;
-    }
-  }
-  &__menu-item {
-    position: relative;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: $color-white;
-    font-weight: $font-weight-bold;
-    width: 170px;
-    height: 70px;
-    background-color: $color-primary;
-    cursor: pointer;
-
-    &[checked] {
-      display: none;
     }
   }
 

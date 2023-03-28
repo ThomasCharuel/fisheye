@@ -23,24 +23,51 @@ function changePageTitle(photographer) {
   document.title = `FishEye - ${photographer.getName()}`;
 }
 
-function displayData(photographer) {
+function displayMedias(photographer, sortby) {
+  const mediasSection = document.querySelector('.medias-section');
+  // Empty medias
+  mediasSection.replaceChildren();
+
+  // Add medias to HTML one by one
+  [...photographer.getMedias()] // Create new array to avoid in-place sorting
+    // Apply sort
+    .sort((a, b) => {
+      let sortValue;
+      if (sortby === 'likes') {
+        sortValue = a.getLikes() - b.getLikes();
+      } else if (sortby === 'date') {
+        sortValue = a.getDate() > b.getDate();
+      } else if (sortby === 'title') {
+        sortValue = a.getTitle().localeCompare(b.getTitle());
+      } else {
+        throw 'Unkown sort type';
+      }
+      return sortValue;
+    })
+    .forEach((media) => mediasSection.insertAdjacentHTML('beforeend', media.getCardHTML()));
+}
+
+function displayData(photographer, sortby) {
   const photographerHeader = document.querySelector('.photographer-header');
   photographerHeader.innerHTML = photographer.getHeaderHTML();
 
-  const mediasSection = document.querySelector('.medias-section');
-  photographer.getMedias().forEach((media) => {
-    mediasSection.insertAdjacentHTML('beforeend', media.getCardHTML());
-  });
+  displayMedias(photographer, sortby);
 
   const photographerInfoSection = document.querySelector('.photographer-info-section');
   photographerInfoSection.innerHTML = photographer.getInfoSectionHTML();
 }
 
 async function main() {
+  const defaultSortBy = 'likes';
   const photographer = await getPhotographerData();
 
+  document.querySelectorAll('.dropdown-btn__menu-item')
+    .forEach((sortItem) => sortItem.addEventListener('click', () => {
+      displayMedias(photographer, sortItem.getAttribute('value'));
+    }));
+
   changePageTitle(photographer);
-  displayData(photographer);
+  displayData(photographer, defaultSortBy);
 }
 
 main();

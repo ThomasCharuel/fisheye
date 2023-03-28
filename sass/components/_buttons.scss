@@ -3,7 +3,6 @@
   text-align: center;
   font-size: 18px;
   font-weight: $font-weight-bold;
-  color: white;
   width: 170px;
   height: 70px;
   border: none;
@@ -14,5 +13,79 @@
   &:hover, &:focus {
     color: $color-black;
     background-color: $color-secondary;
+  }
+}
+
+.dropdown-btn {
+  color: $color-white;
+  font-size: 18px;
+  font-weight: $font-weight-bold;
+  width: 170px;
+  height: 70px;
+  background-color: $color-primary;
+  border-radius: 5px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+
+  &__dropdown-icon {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    font-size: 20px;
+    transition: transform 0.2s ease-in;
+  }
+
+  &__choice {
+    height: 100%;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    &[checked] {
+      display: flex;
+      grid-row: 1;
+
+      // &::after {
+      //   content: "";
+      //   height: 20px;
+      //   width: 20px;
+      //   border: 3px solid transparent;
+      //   border-bottom-color: $color-white;
+      //   border-left-color: $color-white;
+      //   transform: rotate(-45deg);
+      // }
+    }
+  }
+
+  &:hover {
+    height: 210px;
+
+    .dropdown-btn__dropdown-icon {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-btn__choice {
+      display: flex;
+      position: relative;
+
+      // Print line decoration between grid items
+      &::before {
+        content: "";
+        position: absolute;
+        left: 5%;
+        height: 1px;
+        width: 90%;
+        background-color: $color-white;
+      }
+      &[checked]::before {
+        bottom: -1px;
+      }
+      &:not([checked])::before {
+        top: 0;
+      }
+    }
   }
 }

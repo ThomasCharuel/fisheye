@@ -43,7 +43,6 @@ body {
   text-align: center;
   font-size: 18px;
   font-weight: 700;
-  color: white;
   width: 170px;
   height: 70px;
   border: none;
@@ -54,6 +53,62 @@ body {
 .cta-btn:hover, .cta-btn:focus {
   color: #000000;
   background-color: #D3573C;
+}
+
+.dropdown-btn {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  width: 170px;
+  height: 70px;
+  background-color: #901C1C;
+  border-radius: 5px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+}
+.dropdown-btn__dropdown-icon {
+  position: absolute;
+  top: 22px;
+  right: 20px;
+  font-size: 20px;
+  transition: transform 0.2s ease-in;
+}
+.dropdown-btn__choice {
+  height: 100%;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.dropdown-btn__choice[checked] {
+  display: flex;
+  grid-row: 1;
+}
+.dropdown-btn:hover {
+  height: 210px;
+}
+.dropdown-btn:hover .dropdown-btn__dropdown-icon {
+  transform: rotate(180deg);
+}
+.dropdown-btn:hover .dropdown-btn__choice {
+  display: flex;
+  position: relative;
+}
+.dropdown-btn:hover .dropdown-btn__choice::before {
+  content: "";
+  position: absolute;
+  left: 5%;
+  height: 1px;
+  width: 90%;
+  background-color: white;
+}
+.dropdown-btn:hover .dropdown-btn__choice[checked]::before {
+  bottom: -1px;
+}
+.dropdown-btn:hover .dropdown-btn__choice:not([checked])::before {
+  top: 0;
 }
 
 .modal {
@@ -168,11 +223,15 @@ body {
   margin-top: 5px;
 }
 
+main {
+  margin: 0 100px;
+}
+
 .photographer-header {
   background-color: #FAFAFA;
+  border-radius: 5px;
   height: 300px;
   padding: 50px;
-  margin: 0 100px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
@@ -219,12 +278,28 @@ body {
   padding-left: 6px;
 }
 
+.medias-sort-section {
+  margin: 10px 0px;
+  display: flex;
+  align-items: center;
+}
+.medias-sort-section__label {
+  font-weight: 700;
+  font-size: 18px;
+  margin-right: 25px;
+}
 .medias-section {
-  margin: 60px 100px;
+  margin: 60px 0px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 20px;
   justify-items: center;
+}
+.medias-section li:nth-child(3n-2) {
+  justify-self: start;
+}
+.medias-section li:nth-child(3n) {
+  justify-self: end;
 }
 
 .media-card {

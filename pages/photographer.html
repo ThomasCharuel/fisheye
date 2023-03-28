@@ -25,7 +25,12 @@
     <main>
         <header class="photographer-header"></header>
         <div class="medias-sort-section">
-            Trier par
+            <label for="medias-sort-select">Trier par</label>
+            <select name="medias-sort-select" id="medias-sort-select">
+                <option value="likes">Popularité</option>
+                <option value="date">Date</option>
+                <option value="title">Titre</option>
+            </select>
         </div>
         <ul class="medias-section"></ul>
         <aside class="photographer-info-section">

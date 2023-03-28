@@ -26,12 +26,17 @@
         <header class="photographer-header"></header>
         <div class="medias-sort-section">
             <span class="medias-sort-section__label">Trier par</span>
-            <button class="medias-sort-section__dropdown-btn dropdown-btn">
-                <span class="dropdown-btn__dropdown-icon"><i class="fa-solid fa-chevron-up"></i></span>
-                <a class="dropdown-btn__choice" href="#" value="likes" checked>Popularité</a>
-                <a class="dropdown-btn__choice" href="#" value="date">Date</a>
-                <a class="dropdown-btn__choice" href="#" value="title">Titre</a>
-            </button>
+            <div class="medias-sort-section__dropdown-btn dropdown-btn">
+                <button class="dropdown-btn__menu-item dropdown-btn__cta">
+                    <span class="medias-sort-section__dropdown-btn-text dropdown-btn__cta-text">Popularité</span>
+                    <i class="dropdown-btn__cta-icon fa-solid fa-chevron-down"></i>
+                </button>
+                <ul class="dropdown-btn__menu">
+                    <li><a class="dropdown-btn__menu-item" href="#" checked>Popularité</a></li>
+                    <li><a class="dropdown-btn__menu-item" href="#">Date</a></li>
+                    <li><a class="dropdown-btn__menu-item" href="#">Titre</a></li>
+                </ul>
+            </div>
         </div>
         <ul class="medias-section"></ul>
         <aside class="photographer-info-section">

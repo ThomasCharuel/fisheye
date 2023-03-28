@@ -43,4 +43,4 @@ async function main() {
   displayData(photographer);
 }
 
-main();
+//main();

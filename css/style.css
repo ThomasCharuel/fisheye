@@ -55,60 +55,61 @@ body {
   background-color: #D3573C;
 }
 
-.dropdown-btn {
-  color: white;
+.dropdown-btn__cta {
+  border-radius: 5px;
+}
+.dropdown-btn__cta::before {
+  display: none;
+}
+.dropdown-btn__cta-text {
   font-size: 18px;
+}
+.dropdown-btn__cta-icon {
+  font-size: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+.dropdown-btn__menu-item {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
   font-weight: 700;
   width: 170px;
   height: 70px;
   background-color: #901C1C;
-  border-radius: 5px;
   cursor: pointer;
-  display: grid;
-  grid-template-columns: 1fr;
-  position: relative;
 }
-.dropdown-btn__dropdown-icon {
-  position: absolute;
-  top: 22px;
-  right: 20px;
-  font-size: 20px;
-  transition: transform 0.2s ease-in;
-}
-.dropdown-btn__choice {
-  height: 100%;
+.dropdown-btn__menu-item[checked] {
   display: none;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
 }
-.dropdown-btn__choice[checked] {
-  display: flex;
-  grid-row: 1;
+.dropdown-btn__menu {
+  display: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+  position: absolute;
+  z-index: 100;
 }
-.dropdown-btn:hover {
-  height: 210px;
-}
-.dropdown-btn:hover .dropdown-btn__dropdown-icon {
-  transform: rotate(180deg);
-}
-.dropdown-btn:hover .dropdown-btn__choice {
-  display: flex;
-  position: relative;
-}
-.dropdown-btn:hover .dropdown-btn__choice::before {
+.dropdown-btn__menu-item::before {
   content: "";
   position: absolute;
+  top: 0;
   left: 5%;
   height: 1px;
   width: 90%;
   background-color: white;
 }
-.dropdown-btn:hover .dropdown-btn__choice[checked]::before {
-  bottom: -1px;
+.dropdown-btn:hover .dropdown-btn__cta {
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
 }
-.dropdown-btn:hover .dropdown-btn__choice:not([checked])::before {
-  top: 0;
+.dropdown-btn:hover .dropdown-btn__cta-icon {
+  transform: rotate(180deg);
+}
+.dropdown-btn:hover .dropdown-btn__menu {
+  display: block;
 }
 
 .modal {

@@ -19,6 +19,10 @@ async function getPhotographerData() {
   return photographer;
 }
 
+function changePageTitle(photographer) {
+  document.title = `FishEye - ${photographer.getName()}`;
+}
+
 function displayData(photographer) {
   const photographerHeader = document.querySelector('.photographer-header');
   photographerHeader.innerHTML = photographer.getHeaderHTML();
@@ -35,6 +39,7 @@ function displayData(photographer) {
 async function main() {
   const photographer = await getPhotographerData();
 
+  changePageTitle(photographer);
   displayData(photographer);
 }
 

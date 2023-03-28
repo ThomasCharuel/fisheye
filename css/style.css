@@ -317,6 +317,7 @@ main {
   width: 100%;
   height: 300px;
   object-fit: cover;
+  border-radius: 5px;
 }
 .media-card__film-icon {
   position: absolute;

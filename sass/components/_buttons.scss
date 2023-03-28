@@ -17,75 +17,62 @@
 }
 
 .dropdown-btn {
-  color: $color-white;
-  font-size: 18px;
-  font-weight: $font-weight-bold;
-  width: 170px;
-  height: 70px;
-  background-color: $color-primary;
-  border-radius: 5px;
-  cursor: pointer;
-  display: grid;
-  grid-template-columns: 1fr;
-  position: relative;
-
-  &__dropdown-icon {
-    position: absolute;
-    top: 22px;
-    right: 20px;
-    font-size: 20px;
-    transition: transform 0.2s ease-in;
-  }
-
-  &__choice {
-    height: 100%;
-    display: none;
-    justify-content: space-between;
-    align-items: center;
+  &__menu-item {
+    position: relative;
     padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: unset;
 
     &[checked] {
-      display: flex;
-      grid-row: 1;
-
-      // &::after {
-      //   content: "";
-      //   height: 20px;
-      //   width: 20px;
-      //   border: 3px solid transparent;
-      //   border-bottom-color: $color-white;
-      //   border-left-color: $color-white;
-      //   transform: rotate(-45deg);
-      // }
+      display: none;
+    }
+  }
+  &__cta {
+    border-radius: 5px;
+    &::before {
+      display: none; // Remove line for first menu item
+    }
+    &-text {
+      font-size: 18px;
+    }
+    &-icon {
+      font-size: 20px;
+      transition: transform 0.2s ease-in-out;
     }
   }
 
-  &:hover {
-    height: 210px;
+  &__menu {
+    display: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+    position: absolute;
+    z-index: 100;
 
-    .dropdown-btn__dropdown-icon {
-      transform: rotate(180deg);
-    }
-
-    .dropdown-btn__choice {
-      display: flex;
-      position: relative;
-
-      // Print line decoration between grid items
-      &::before {
-        content: "";
+    // Print line decoration between grid items
+    &-item::before {
+      content: "";
         position: absolute;
+        top: 0;
         left: 5%;
         height: 1px;
         width: 90%;
         background-color: $color-white;
+    }
+  }
+  &:hover &{
+    &__cta {
+      border-bottom-left-radius: unset;
+      border-bottom-right-radius: unset;
+      &-icon {
+        transform: rotate(180deg);
       }
-      &[checked]::before {
-        bottom: -1px;
-      }
-      &:not([checked])::before {
-        top: 0;
-      }
+    }
+    
+    &__menu {
+      display: block;
     }
   }
 }

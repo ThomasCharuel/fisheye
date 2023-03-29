@@ -6,6 +6,7 @@ export default class Media {
     this.photographerId = data.photographerId;
     this.price = data.price;
     this.title = data.title;
+    this.hasUserLiked = false;
   }
 
   getDate() {
@@ -34,5 +35,18 @@ export default class Media {
 
   getTitle() {
     return this.title;
+  }
+
+  getHasUserLiked() {
+    return this.hasUserLiked;
+  }
+
+  toggleHasUserLiked() {
+    if (this.hasUserLiked) {
+      this.setLikes(this.getLikes() - 1);
+    } else {
+      this.setLikes(this.getLikes() + 1);
+    }
+    this.hasUserLiked = !this.hasUserLiked;
   }
 }

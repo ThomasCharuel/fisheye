@@ -44,26 +44,19 @@ function displayMedias(photographer, sortby) {
       }
       return sortValue;
     })
-    .forEach((media) => {
-      // Add media card to HTML
-      mediasSection.insertAdjacentHTML('beforeend', media.getCardHTML());
-
-      media.setLikeButtonCSSClass();
-
-      // Create event for click on like button
-      const likeButton = document.querySelector(`#media-card-${media.getId()} .like-btn`);
-      likeButton.addEventListener('click', media.handleClickLikeButton);
-    });
+    .forEach(
+      (media) => mediasSection.appendChild(media.createCard(photographer.updateInfoSection)),
+    );
 }
 
 function displayData(photographer, sortby) {
   const photographerHeader = document.querySelector('.photographer-header');
   photographerHeader.innerHTML = photographer.getHeaderHTML();
 
-  displayMedias(photographer, sortby);
-
   const photographerInfoSection = document.querySelector('.photographer-info-section');
   photographerInfoSection.innerHTML = photographer.getInfoSectionHTML();
+
+  displayMedias(photographer, sortby);
 }
 
 async function main() {

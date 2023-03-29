@@ -8,7 +8,11 @@ export default function createPhotographer(data) {
 
   photographer.getCardHTML = () => new PhotographerCard(photographer).getHTML();
   photographer.getHeaderHTML = () => new PhotographerHeader(photographer).getHTML();
-  photographer.getInfoSectionHTML = () => new PhotographerInfoSection(photographer).getHTML();
+  photographer.getInfoSectionHTML = () => {
+    photographer.infoSectionTemplate = new PhotographerInfoSection(photographer);
+    return photographer.infoSectionTemplate.getHTML();
+  };
+  photographer.updateInfoSection = () => photographer.infoSectionTemplate.updateLikesCount();
 
   return photographer;
 }

@@ -38,7 +38,7 @@ export default class Photographer {
     return `/assets/images/photographers/${this.id}/${this.portrait}`;
   }
 
-  getLikeCount() {
+  getLikesCount() {
     return this.medias.map((media) => media.getLikes()).reduce((a, b) => a + b);
   }
 

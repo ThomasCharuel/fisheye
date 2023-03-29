@@ -35,6 +35,11 @@
     opacity: 0;
     transition: opacity 0.1s ease-in-out;
   }
+  &.btn-liked {
+    .filled-heart {
+      opacity: 1;
+    }
+  }
   &:hover {
     .outline-heart {
       opacity: 0;

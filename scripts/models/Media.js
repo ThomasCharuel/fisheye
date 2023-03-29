@@ -6,6 +6,7 @@ export default class Media {
     this.photographerId = data.photographerId;
     this.price = data.price;
     this.title = data.title;
+    this.hasUserLike = false;
   }
 
   getDate() {
@@ -30,5 +31,14 @@ export default class Media {
 
   getTitle() {
     return this.title;
+  }
+
+  getHasUserLike() {
+    return this.hasUserLike;
+  }
+
+  toggleUserLike() {
+    this.hasUserLike = !this.hasUserLike;
+    console.log(this.hasUserLike);
   }
 }

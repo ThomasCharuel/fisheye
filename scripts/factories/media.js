@@ -15,5 +15,19 @@ export default function createMedia(data) {
 
   media.getCardHTML = () => new MediaCard(media).getHTML();
 
+  media.setLikeButtonCSSClass = () => {
+    const likeButton = document.querySelector(`#media-card-${media.getId()} .like-btn`);
+    if (media.getHasUserLike()) {
+      likeButton.classList.add('btn-liked');
+    } else {
+      likeButton.classList.remove('btn-liked');
+    }
+  };
+
+  media.handleClickLikeButton = () => {
+    media.toggleUserLike();
+    media.setLikeButtonCSSClass();
+  };
+
   return media;
 }

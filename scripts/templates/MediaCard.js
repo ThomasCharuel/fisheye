@@ -13,6 +13,7 @@ export default class MediaCard {
       thumbnailHTML = `
         <img src="${this.media.getImage()}" class="media-card__thumbnail">
       `;
+      thumbnailHTML = '<img class="media-card__thumbnail">';
     } else if (this.media instanceof VideoMedia) {
       thumbnailHTML = `
         <div class="media-card__thumbnail-wrapper">
@@ -28,7 +29,7 @@ export default class MediaCard {
     }
 
     return `
-      <li>
+      <li id="media-card-${this.media.getId()}">
         <article class="media-card">
           ${thumbnailHTML}
           <div class="media-card__info-wrapper">

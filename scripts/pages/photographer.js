@@ -44,7 +44,16 @@ function displayMedias(photographer, sortby) {
       }
       return sortValue;
     })
-    .forEach((media) => mediasSection.insertAdjacentHTML('beforeend', media.getCardHTML()));
+    .forEach((media) => {
+      // Add media card to HTML
+      mediasSection.insertAdjacentHTML('beforeend', media.getCardHTML());
+
+      media.setLikeButtonCSSClass();
+
+      // Create event for click on like button
+      const likeButton = document.querySelector(`#media-card-${media.getId()} .like-btn`);
+      likeButton.addEventListener('click', media.handleClickLikeButton);
+    });
 }
 
 function displayData(photographer, sortby) {

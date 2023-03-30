@@ -31,7 +31,7 @@ export default class MediaCard {
       thumbnailHTML = `
         <img src="${this.media.getImage()}" class="media-card__thumbnail">
       `;
-      thumbnailHTML = '<img class="media-card__thumbnail">';
+      thumbnailHTML = '<img class="media-card__thumbnail">'; // DEV TO REMOVE
     } else if (this.media instanceof VideoMedia) {
       thumbnailHTML = `
         <div class="media-card__thumbnail-wrapper">

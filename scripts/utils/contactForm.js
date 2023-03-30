@@ -1,10 +1,10 @@
 export function openContactFormModal() {
-  const modal = document.querySelector('.contact-form__modal');
+  const modal = document.querySelector('.contact-form');
   modal.classList.add('show');
 }
 
 export function closeContactFormModal() {
-  const modal = document.querySelector('.contact-form__modal');
+  const modal = document.querySelector('.contact-form');
   modal.classList.remove('show');
 }
 

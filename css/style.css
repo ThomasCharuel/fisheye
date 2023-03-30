@@ -336,7 +336,7 @@ main {
   margin-left: 5px;
 }
 
-.contact-form__modal {
+.contact-form {
   display: none;
   position: fixed;
   z-index: 200;
@@ -347,7 +347,7 @@ main {
   overflow: auto;
   background-color: rgba(196, 196, 196, 0.4);
 }
-.contact-form__modal.show {
+.contact-form.show {
   display: block;
 }
 .contact-form__container {

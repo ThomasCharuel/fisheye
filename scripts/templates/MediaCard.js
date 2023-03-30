@@ -24,7 +24,7 @@ export default class MediaCard {
       });
   }
 
-  createMediaCard() {
+  create() {
     let thumbnailHTML;
 
     if (this.media instanceof ImageMedia) {

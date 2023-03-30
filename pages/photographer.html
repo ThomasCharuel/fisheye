@@ -23,7 +23,7 @@
         </a>
     </header>
     <main>
-        <header class="photographer-header"></header>
+        <div class="photographer-header-wrapper"></div>
         <div class="medias-sort-section">
             <span class="medias-sort-section__label">Trier par</span>
             <div class="medias-sort-section__dropdown-btn dropdown-btn">
@@ -42,29 +42,32 @@
         <aside class="photographer-info-section">
         </aside>
     </main>
-    <div id="contact_modal">
-        <div class="modal">
-            <header>
-                <h2>Contactez-moi</h2>
+    <div class="contact-form__modal show">
+        <div class="contact-form__container">
+            <header class="contact-form__header">
+                <h2 class="contact-form__header-title">
+                    Contactez-moi<br><span class="contact-form__header-title-photographer-name"></span>
+                </h2>
                 <img class="close-modal-btn" src="/assets/images/icons/close.svg" onclick="closeModal()" />
             </header>
-            <form>
-                <div>
-                    <label>Prénom</label>
-                    <input />
-                    <label>Nom</label>
-                    <input />
-                    <label>Email</label>
-                    <input />
-                    <label>Votre message</label>
-                    <input />
-                </div>
-                <button class="contact_button">Envoyer</button>
+            <form class="contact-form__form">
+                <label class="contact-form__form-label">Prénom
+                    <input name="firstname" type="text" autocomplete required>
+                </label>
+                <label class="contact-form__form-label">Nom
+                    <input name="lastname" type="text" autocomplete required>
+                </label>
+                <label class="contact-form__form-label">Email
+                    <input name="email" type="email" autocomplete required>
+                </label>
+                <label class="contact-form__form-label">Votre message
+                    <textarea name="message" required></textarea>
+                </label>
+                <input type="submit" value="Envoyer" class="contact_button cta-btn">
             </form>
         </div>
     </div>
     <script src="/scripts/pages/photographer.js" type="module"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
 </body>
 
 </html>

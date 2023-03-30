@@ -136,53 +136,6 @@ body {
   display: block;
 }
 
-.modal {
-  border-radius: 5px;
-  background-color: #DB8876;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 35px;
-  margin: auto;
-}
-.modal header {
-  justify-content: space-between;
-  width: 100%;
-}
-.modal header h2 {
-  font-size: 64px;
-  font-weight: normal;
-  text-align: center;
-}
-.modal header .close-modal-btn {
-  cursor: pointer;
-}
-.modal form {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.modal form label {
-  color: #312E2E;
-  font-size: 36px;
-}
-.modal form div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: self-start;
-  margin-bottom: 26px;
-}
-.modal form input {
-  width: 100%;
-  height: 68px;
-  border: none;
-  border-radius: 5px;
-}
-
 .banner {
   display: flex;
   flex-direction: row;
@@ -383,8 +336,80 @@ main {
   margin-left: 5px;
 }
 
-#contact_modal {
+.contact-form__modal {
   display: none;
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(196, 196, 196, 0.4);
+}
+.contact-form__modal.show {
+  display: block;
+}
+.contact-form__container {
+  border-radius: 5px;
+  background-color: #DB8876;
+  width: 50%;
+  padding: 35px;
+  margin: 5% auto;
+}
+.contact-form__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.contact-form__header-title {
+  margin-top: -14px;
+  font-size: 64px;
+  font-weight: 400;
+}
+.contact-form__header .close-modal-btn {
+  cursor: pointer;
+}
+.contact-form__form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contact-form__form-label {
+  color: #312E2E;
+  font-size: 36px;
+}
+.contact-form__form-label input, .contact-form__form-label textarea {
+  border: unset;
+  width: 100%;
+  height: 68px;
+  border-radius: 5px;
+  font-size: 36px;
+}
+.contact-form__form-label input:active, .contact-form__form-label textarea:active {
+  border: 1px solid #757575;
+}
+.contact-form__form-label textarea {
+  height: 170px;
+}
+
+.foo form label {
+  color: #312E2E;
+  font-size: 36px;
+}
+.foo form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+  margin-bottom: 26px;
+}
+.foo form input {
+  width: 100%;
+  height: 68px;
+  border: none;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */

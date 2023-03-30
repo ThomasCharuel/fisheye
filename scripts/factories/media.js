@@ -13,7 +13,7 @@ export default function createMedia(data) {
     throw 'Unknown type format';
   }
 
-  media.createCard = (updateLikesCount) => new MediaCard(media, updateLikesCount).createMediaCard();
+  media.createCard = (updateLikesCount) => new MediaCard(media, updateLikesCount).create();
 
   return media;
 }

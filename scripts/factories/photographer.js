@@ -17,5 +17,27 @@ export default function createPhotographer(data) {
   photographer.createContactForm = () => (
     new PhotographerContactForm(photographer).create());
 
+  photographer.openContactFormModal = () => {
+    const photographerContactForm = document.querySelector('.contact-form-placeholder');
+    photographerContactForm.appendChild(new PhotographerContactForm(photographer).create());
+  };
+
+  photographer.closeContactFormModal = () => {
+    document.querySelector('.contact-form-placeholder').replaceChildren();
+  };
+
+  photographer.handleContactFormSubmit = (e) => {
+    const contactForm = document.querySelector('.contact-form__form');
+
+    if (contactForm.reportValidity()) {
+      // Get and print inputs in console
+      contactForm.querySelectorAll('input:not([type="submit"]), textarea')
+        .forEach((input) => console.log(`${input.name}: ${input.value}`));
+
+      e.preventDefault(); // Prevent default submit behavior
+      photographer.closeContactFormModal(); // Close modal after submitting
+    }
+  };
+
   return photographer;
 }

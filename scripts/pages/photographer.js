@@ -56,9 +56,6 @@ function displayData(photographer, sortby) {
   const photographerInfoSection = document.querySelector('.photographer-info-section');
   photographerInfoSection.innerHTML = photographer.getInfoSectionHTML();
 
-  const photographerContactForm = document.querySelector('.contact-form');
-  photographerContactForm.appendChild(photographer.createContactForm());
-
   displayMedias(photographer, sortby);
 }
 

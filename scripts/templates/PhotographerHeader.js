@@ -1,5 +1,3 @@
-import { openContactFormModal } from '../utils/contactForm.js';
-
 export default class PhotographerHeader {
   constructor(photographer) {
     this.photographer = photographer;
@@ -21,7 +19,7 @@ export default class PhotographerHeader {
 
     // Handle open contact button click
     wrapper.querySelector('.photographer-header__contact-btn')
-      .addEventListener('click', openContactFormModal);
+      .addEventListener('click', this.photographer.openContactFormModal);
 
     return wrapper;
   }

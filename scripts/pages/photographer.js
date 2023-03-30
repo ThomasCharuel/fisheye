@@ -23,11 +23,6 @@ function changePageTitle(photographer) {
   document.title = `FishEye - ${photographer.getName()}`;
 }
 
-function changeModalTitle(photographer) {
-  document.querySelector('.contact-form__header-title-photographer-name')
-    .textContent = photographer.getName();
-}
-
 function displayMedias(photographer, sortby) {
   const mediasSection = document.querySelector('.medias-section');
   // Empty medias
@@ -61,6 +56,9 @@ function displayData(photographer, sortby) {
   const photographerInfoSection = document.querySelector('.photographer-info-section');
   photographerInfoSection.innerHTML = photographer.getInfoSectionHTML();
 
+  const photographerContactFormModal = document.querySelector('.contact-form__modal');
+  photographerContactFormModal.appendChild(photographer.createContactFormModal());
+
   displayMedias(photographer, sortby);
 }
 
@@ -74,7 +72,6 @@ async function main() {
     }));
 
   changePageTitle(photographer);
-  changeModalTitle(photographer);
 
   displayData(photographer, defaultSortBy);
 }

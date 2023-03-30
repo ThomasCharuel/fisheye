@@ -154,7 +154,6 @@ main {
   }
 }
 
-
 .contact-form {
   &__modal {
     display: none;
@@ -220,30 +219,6 @@ main {
       textarea {
         height: 170px;
       }
-    }
-  }
-}
-
-.foo {
-  form {
-    label {
-      color: $color-dark-grey;
-      font-size: 36px;
-    }
-
-    div {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      align-items: self-start;
-      margin-bottom: 26px;
-    }
-
-    input {
-      width: 100%;
-      height: 68px;
-      border: none;
-      border-radius: 5px;
     }
   }
 }

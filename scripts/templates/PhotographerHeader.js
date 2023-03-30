@@ -15,7 +15,7 @@ export default class PhotographerHeader {
         <p class="photographer-header__location">${this.photographer.getCity()}, ${this.photographer.getCountry()}</p>
         <p class="photographer-header__tagline">${this.photographer.getTagline()}</p>
       </div>
-      <button class="photographer-header__contact-btn cta-btn" onclick="${() => openContactFormModal()}">Contactez-moi</button>
+      <button class="photographer-header__contact-btn cta-btn">Contactez-moi</button>
       <img src="${this.photographer.getPortrait()}" class="photographer-header__image">
     `;
 

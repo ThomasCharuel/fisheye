@@ -27,9 +27,17 @@ export default class MediaLightbox {
 
     wrapper.innerHTML = `
       <div class="media-lightbox__container">
-        ${mediaHTML}
+        <div class="media-lightbox__controls">
+          <div class="media-lightbox__controls-left">
+            <i class="fa-solid fa-angle-left"></i>
+          </div>
+          ${mediaHTML}
+          <div class="media-lightbox__controls-right">
+            <i class="close-btn fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-angle-right"></i>
+          </div>
+        </div>
         <p class="media-lightbox__title">${this.media.getTitle()}</p>
-        <img class="close-btn" src="/assets/images/icons/close.svg">
       </div>
     `;
 

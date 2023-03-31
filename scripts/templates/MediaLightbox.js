@@ -27,22 +27,17 @@ export default class MediaLightbox {
 
     wrapper.innerHTML = `
       <div class="media-lightbox__container">
-        <div class="media-lightbox__controls">
-          <div class="media-lightbox__controls-left">
-            <i class="fa-solid fa-angle-left"></i>
-          </div>
+          <i class="control-left-btn fa-solid fa-angle-left"></i>
           ${mediaHTML}
-          <div class="media-lightbox__controls-right">
-            <i class="close-btn fa-solid fa-xmark"></i>
-            <i class="fa-solid fa-angle-right"></i>
-          </div>
+          <i class="control-close-btn fa-solid fa-xmark"></i>
+          <i class="control-right-btn fa-solid fa-angle-right"></i>
+          <p class="media-lightbox__title">${this.media.getTitle()}</p>
         </div>
-        <p class="media-lightbox__title">${this.media.getTitle()}</p>
       </div>
     `;
 
     // Handle close lightbox button click
-    wrapper.querySelector('.close-btn')
+    wrapper.querySelector('.control-close-btn')
       .addEventListener('click', this.photographer.closeMediaLightboxModal);
 
     return wrapper;

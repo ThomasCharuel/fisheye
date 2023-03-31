@@ -99,61 +99,6 @@ main {
   }
 }
 
-.media-card {
-  position: relative;
-  cursor: pointer;
-  width: 100%;
-  height: 350px;
-  display: flex;
-  flex-direction: column;
-
-  &__thumbnail_wrapper {
-    display: block;
-  }
-
-  &__thumbnail {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
-
-  &__film-icon {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    font-size: 30px;
-    color: $color-primary;
-  }
-
-  &__info-wrapper {
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: $color-primary;
-    font-size: 24px;
-  }
-
-  &__title {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  &__likes {
-    margin-left: 5px;
-    white-space: nowrap;
-    font-weight: $font-weight-medium;
-    display: flex;
-    align-items: center;
-
-    &-btn {
-      margin-left: 5px;
-    }
-  }
-}
-
 .media-lightbox {
   display: block;
   position: fixed;

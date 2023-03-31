@@ -34,13 +34,11 @@ export default class MediaCard {
       `;
     } else if (this.media instanceof VideoMedia) {
       thumbnailHTML = `
-        <div class="media-card__thumbnail-wrapper">
-          <i class="media-card__film-icon fa-regular fa-circle-play"></i>
-          <video class="media-card__thumbnail">
-            <i class="fa-solid fa-film"></i>
-            <source src="${this.media.getVideo()}" type="video/mp4">
-          </video>
-        </div>
+        <i class="media-card__film-icon fa-regular fa-circle-play"></i>
+        <video class="media-card__thumbnail">
+          <i class="fa-solid fa-film"></i>
+          <source src="${this.media.getVideo()}" type="video/mp4">
+        </video>
       `;
     } else {
       throw 'Unknown Media Type';
@@ -49,7 +47,9 @@ export default class MediaCard {
     this.wrapper.innerHTML = `
       <li id="media-card-${this.media.getId()}">
         <article class="media-card">
-          ${thumbnailHTML}
+          <div class="media-card__thumbnail-wrapper">
+            ${thumbnailHTML}
+          </div>
           <div class="media-card__info-wrapper">
             <p class="media-card__title">${this.media.getTitle()}</p>
             <p class="media-card__likes">
@@ -66,7 +66,8 @@ export default class MediaCard {
     this.handleLikeButton();
 
     // Open lightbox if click on media card
-    this.wrapper.addEventListener('click', () => this.openLightboxModal(this.media));
+    this.wrapper.querySelectorAll('.media-card__thumbnail-wrapper, .media-card__title')
+      .forEach((el) => el.addEventListener('click', () => this.openLightboxModal(this.media)));
 
     return this.wrapper;
   }

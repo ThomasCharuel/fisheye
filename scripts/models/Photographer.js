@@ -8,6 +8,7 @@ export default class Photographer {
     this.price = data.price;
     this.portrait = data.portrait;
     this.medias = [];
+    this.sortMediasBy = 'likes';
   }
 
   getName() {
@@ -43,10 +44,49 @@ export default class Photographer {
   }
 
   getMedias() {
-    return this.medias;
+    const mediaSorted = [...this.medias]
+      .sort((a, b) => {
+        let sortValue;
+        if (this.sortMediasBy === 'likes') {
+          sortValue = a.getLikes() - b.getLikes();
+        } else if (this.sortMediasBy === 'date') {
+          sortValue = a.getDate() > b.getDate();
+        } else if (this.sortMediasBy === 'title') {
+          sortValue = a.getTitle().localeCompare(b.getTitle());
+        } else {
+          throw 'Unkown sort type';
+        }
+        return sortValue;
+      });
+    return mediaSorted;
+  }
+
+  getNextMedia(media) {
+    const medias = this.getMedias();
+    const currentMediaIndex = medias.indexOf(media);
+    return medias[currentMediaIndex + 1];
+  }
+
+  getPreviousMedia(media) {
+    const medias = this.getMedias();
+    const currentMediaIndex = medias.indexOf(media);
+    return medias[currentMediaIndex - 1];
+  }
+
+  isMediaFirstInMedias(media) {
+    return this.getMedias().indexOf(media) === 0;
+  }
+
+  isMediaLastInMedias(media) {
+    const medias = this.getMedias();
+    return medias.indexOf(media) === medias.length - 1;
   }
 
   setMedias(medias) {
     this.medias = medias;
+  }
+
+  setSortMediasBy(sortby) {
+    this.sortMediasBy = sortby;
   }
 }

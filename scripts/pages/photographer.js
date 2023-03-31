@@ -23,27 +23,13 @@ function changePageTitle(photographer) {
   document.title = `FishEye - ${photographer.getName()}`;
 }
 
-function displayMedias(photographer, sortby) {
+function displayMedias(photographer) {
   const mediasSection = document.querySelector('.medias-section');
   // Empty medias
   mediasSection.replaceChildren();
 
   // Add medias to HTML one by one
-  [...photographer.getMedias()] // Create new array to avoid in-place sorting
-    // Apply sort
-    .sort((a, b) => {
-      let sortValue;
-      if (sortby === 'likes') {
-        sortValue = a.getLikes() - b.getLikes();
-      } else if (sortby === 'date') {
-        sortValue = a.getDate() > b.getDate();
-      } else if (sortby === 'title') {
-        sortValue = a.getTitle().localeCompare(b.getTitle());
-      } else {
-        throw 'Unkown sort type';
-      }
-      return sortValue;
-    })
+  photographer.getMedias()
     .forEach(
       (media) => mediasSection.appendChild(
         media.createCard(photographer.openMediaLightboxModal, photographer.updateInfoSection),
@@ -51,28 +37,28 @@ function displayMedias(photographer, sortby) {
     );
 }
 
-function displayData(photographer, sortby) {
+function displayData(photographer) {
   const photographerHeader = document.querySelector('.photographer-header-wrapper');
   photographerHeader.appendChild(photographer.createHeader());
 
   const photographerInfoSection = document.querySelector('.photographer-info-section');
   photographerInfoSection.innerHTML = photographer.getInfoSectionHTML();
 
-  displayMedias(photographer, sortby);
+  displayMedias(photographer);
 }
 
 async function main() {
-  const defaultSortBy = 'likes';
   const photographer = await getPhotographerData();
 
   document.querySelectorAll('.dropdown-btn__menu-item')
     .forEach((sortItem) => sortItem.addEventListener('click', () => {
-      displayMedias(photographer, sortItem.getAttribute('value'));
+      photographer.setSortMediasBy(sortItem.getAttribute('value'));
+      displayMedias(photographer);
     }));
 
   changePageTitle(photographer);
 
-  displayData(photographer, defaultSortBy);
+  displayData(photographer);
 }
 
 main();

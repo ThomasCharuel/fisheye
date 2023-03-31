@@ -25,12 +25,15 @@ export default class MediaLightbox {
       `;
     }
 
+    const isFirstMediaInMedias = this.photographer.isMediaFirstInMedias(this.media);
+    const isLastMediaInMedias = this.photographer.isMediaLastInMedias(this.media);
+
     wrapper.innerHTML = `
       <div class="media-lightbox__container">
-          <i class="control-left-btn fa-solid fa-angle-left"></i>
+          ${isFirstMediaInMedias ? '' : '<i class="control-left-btn fa-solid fa-angle-left"></i>'}
           ${mediaHTML}
           <i class="control-close-btn fa-solid fa-xmark"></i>
-          <i class="control-right-btn fa-solid fa-angle-right"></i>
+          ${isLastMediaInMedias ? '' : '<i class="control-right-btn fa-solid fa-angle-right"></i>'}
           <p class="media-lightbox__title">${this.media.getTitle()}</p>
         </div>
       </div>
@@ -39,6 +42,16 @@ export default class MediaLightbox {
     // Handle close lightbox button click
     wrapper.querySelector('.control-close-btn')
       .addEventListener('click', this.photographer.closeMediaLightboxModal);
+
+    // Handle right/left button click
+    if (!isFirstMediaInMedias) {
+      wrapper.querySelector('.control-left-btn')
+        .addEventListener('click', () => this.photographer.slideLeftMediaLightbox(this.media));
+    }
+    if (!isLastMediaInMedias) {
+      wrapper.querySelector('.control-right-btn')
+        .addEventListener('click', () => this.photographer.slideRightMediaLightbox(this.media));
+    }
 
     return wrapper;
   }

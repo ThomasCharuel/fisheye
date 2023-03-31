@@ -27,6 +27,22 @@ export default function createPhotographer(data) {
     mediaLightbox.replaceChildren();
   };
 
+  photographer.slideLeftMediaLightbox = (media) => {
+    const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
+    mediaLightbox.replaceChildren();
+    mediaLightbox.appendChild(
+      new MediaLightbox(photographer.getPreviousMedia(media), photographer).create(),
+    );
+  };
+
+  photographer.slideRightMediaLightbox = (media) => {
+    const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
+    mediaLightbox.replaceChildren();
+    mediaLightbox.appendChild(
+      new MediaLightbox(photographer.getNextMedia(media), photographer).create(),
+    );
+  };
+
   photographer.openContactFormModal = () => {
     const photographerContactForm = document.querySelector('.contact-form-placeholder');
     photographerContactForm.appendChild(new PhotographerContactForm(photographer).create());

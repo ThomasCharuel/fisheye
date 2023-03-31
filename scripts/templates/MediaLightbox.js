@@ -15,7 +15,7 @@ export default class MediaLightbox {
 
     if (this.media instanceof ImageMedia) {
       mediaHTML = `
-        <img src="${this.media.getImage()}" class="media-lightbox__media">
+        <img src="${this.media.getImageUrl()}" class="media-lightbox__media">
       `;
     } else if (this.media instanceof VideoMedia) {
       mediaHTML = `

@@ -30,7 +30,7 @@ export default class MediaCard {
 
     if (this.media instanceof ImageMedia) {
       thumbnailHTML = `
-        <img src="${this.media.getImage()}" class="media-card__thumbnail">
+        <img src="${this.media.getMiniImageUrl()}" class="media-card__thumbnail">
       `;
     } else if (this.media instanceof VideoMedia) {
       thumbnailHTML = `

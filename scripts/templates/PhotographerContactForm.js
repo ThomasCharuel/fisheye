@@ -13,7 +13,7 @@ export default class PhotographerContactForm {
             <h2 class="contact-form__header-title">
                 Contactez-moi<br>${this.photographer.getName()}</span>
             </h2>
-            <img class="close-modal-btn" src="/assets/images/icons/close.svg">
+            <img class="close-btn" src="/assets/images/icons/close.svg">
         </header>
         <form class="contact-form__form">
             <label class="contact-form__form-label">Prénom
@@ -34,7 +34,7 @@ export default class PhotographerContactForm {
     `;
 
     // Handle close contact form button click
-    wrapper.querySelector('.close-modal-btn')
+    wrapper.querySelector('.close-btn')
       .addEventListener('click', this.photographer.closeContactFormModal);
 
     // Handle contact form submit

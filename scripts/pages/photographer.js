@@ -45,7 +45,9 @@ function displayMedias(photographer, sortby) {
       return sortValue;
     })
     .forEach(
-      (media) => mediasSection.appendChild(media.createCard(photographer.updateInfoSection)),
+      (media) => mediasSection.appendChild(
+        media.createCard(photographer.openMediaLightboxModal, photographer.updateInfoSection),
+      ),
     );
 }
 

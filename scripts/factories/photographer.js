@@ -1,3 +1,4 @@
+import MediaLightbox from '../templates/MediaLightbox.js';
 import Photographer from '../models/Photographer.js';
 import PhotographerCard from '../templates/PhotographerCard.js';
 import PhotographerHeader from '../templates/PhotographerHeader.js';
@@ -14,8 +15,17 @@ export default function createPhotographer(data) {
     return photographer.infoSectionTemplate.getHTML();
   };
   photographer.updateInfoSection = () => photographer.infoSectionTemplate.updateLikesCount();
-  photographer.createContactForm = () => (
-    new PhotographerContactForm(photographer).create());
+  photographer.createContactForm = () => new PhotographerContactForm(photographer).create();
+
+  photographer.openMediaLightboxModal = (media) => {
+    const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
+    mediaLightbox.appendChild(new MediaLightbox(media, photographer).create());
+  };
+
+  photographer.closeMediaLightboxModal = () => {
+    const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
+    mediaLightbox.replaceChildren();
+  };
 
   photographer.openContactFormModal = () => {
     const photographerContactForm = document.querySelector('.contact-form-placeholder');
@@ -23,7 +33,8 @@ export default function createPhotographer(data) {
   };
 
   photographer.closeContactFormModal = () => {
-    document.querySelector('.contact-form-placeholder').replaceChildren();
+    const photographerContactForm = document.querySelector('.contact-form-placeholder');
+    photographerContactForm.replaceChildren();
   };
 
   photographer.handleContactFormSubmit = (e) => {

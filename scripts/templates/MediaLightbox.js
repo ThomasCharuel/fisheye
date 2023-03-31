@@ -2,17 +2,14 @@ import ImageMedia from '../models/ImageMedia.js';
 import VideoMedia from '../models/VideoMedia.js';
 
 export default class MediaLightbox {
-  constructor(media) {
+  constructor(media, photographer) {
     this.media = media;
-  }
-
-  setMedia(media) {
-    this.media = media;
+    this.photographer = photographer;
   }
 
   create() {
     const wrapper = document.createElement('div');
-    wrapper.classList.add('media-lightbox__container');
+    wrapper.classList.add('media-lightbox');
 
     let mediaHTML;
 
@@ -22,17 +19,23 @@ export default class MediaLightbox {
       `;
     } else if (this.media instanceof VideoMedia) {
       mediaHTML = `
-        <video class="media-lightbox__media">
+        <video class="media-lightbox__media" controls>
           <source src="${this.media.getVideo()}" type="video/mp4">
         </video>
       `;
     }
 
     wrapper.innerHTML = `
-      ${mediaHTML}
-      <p class="media-lightbox__title">${this.media.getTitle()}</p>
-      <img class="close-btn" src="/assets/images/icons/close.svg">
+      <div class="media-lightbox__container">
+        ${mediaHTML}
+        <p class="media-lightbox__title">${this.media.getTitle()}</p>
+        <img class="close-btn" src="/assets/images/icons/close.svg">
+      </div>
     `;
+
+    // Handle close lightbox button click
+    wrapper.querySelector('.close-btn')
+      .addEventListener('click', this.photographer.closeMediaLightboxModal);
 
     return wrapper;
   }

@@ -5,15 +5,16 @@ import MediaCard from '../templates/MediaCard.js';
 export default function createMedia(data) {
   let media;
 
-  if (Object.prototype.hasOwnProperty.call(data, 'image')) {
+  if (data.image) {
     media = new ImageMedia(data);
-  } else if (Object.prototype.hasOwnProperty.call(data, 'video')) {
+  } else if (data.video) {
     media = new VideoMedia(data);
   } else {
     throw 'Unknown type format';
   }
 
-  media.createCard = (updateLikesCount) => new MediaCard(media, updateLikesCount).create();
+  media.createCard = (openLightboxModal, updateLikesCount) => (
+    new MediaCard(media, openLightboxModal, updateLikesCount).create());
 
   return media;
 }

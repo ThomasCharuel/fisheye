@@ -2,9 +2,10 @@ import ImageMedia from '../models/ImageMedia.js';
 import VideoMedia from '../models/VideoMedia.js';
 
 export default class MediaCard {
-  constructor(media, updateLikesCount) {
+  constructor(media, openLightboxModal, updateLikesCount) {
     this.media = media;
     this.updateLikesCount = updateLikesCount;
+    this.openLightboxModal = openLightboxModal;
 
     this.wrapper = document.createElement('li');
   }
@@ -64,6 +65,9 @@ export default class MediaCard {
       </li>
     `;
     this.handleLikeButton();
+
+    // Open lightbox if click on media card
+    this.wrapper.addEventListener('click', () => this.openLightboxModal(this.media));
 
     return this.wrapper;
   }

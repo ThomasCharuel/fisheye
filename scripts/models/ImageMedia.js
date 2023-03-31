@@ -7,6 +7,6 @@ export default class ImageMedia extends Media {
   }
 
   getImage() {
-    return `/assets/images/photographers/${this.photographerId}/medias/${this.image}`;
+    return `/assets/images/photographers/${this.photographerId}/medias/min-${this.image}`;
   }
 }

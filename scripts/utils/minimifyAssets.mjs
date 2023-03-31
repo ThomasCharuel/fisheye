@@ -13,8 +13,7 @@ const JIMP_QUALITY = 70;
 const RESIZE_WIDTH = 600;
 
 const imagesFolder = './assets/images/photographers';
-const tempFolder = './build/temp';
-const destFolder = './build/result';
+const tempFolder = './temp';
 
 // Backup compression with Jimp if Imagemin is unable to compress
 function JimpCompress(filepath, destination) {
@@ -39,13 +38,15 @@ async function compress(filepath, altDest) {
   }
 }
 
-function minimifyImage(imagePath) {
-  const filepath = `${imagesFolder}/${imagePath}`;
-  const tempPath = `${tempFolder}/${imagePath}`;
-  const outputPath = `${destFolder}/${imagePath}`;
+async function minimifyImage(filepath) {
+  const fileName = path.basename(filepath);
+  const filePath = path.dirname(filepath);
+
+  const tempPath = `${tempFolder}/min-${fileName}`;
+  const outputPath = `${filePath}/min-${fileName}`;
 
   // Resize then compress image
-  Jimp.read(filepath, (err, image) => {
+  await Jimp.read(filepath, (err, image) => {
     if (err) throw err;
     image.resize(RESIZE_WIDTH, Jimp.AUTO)
       .writeAsync(tempPath)
@@ -57,19 +58,13 @@ function minimifyImage(imagePath) {
   fs.readdirSync(`${imagesFolder}/${photographerId}`)
     .forEach((f) => {
       if (f.endsWith('.jpg')) {
-        minimifyImage(`${photographerId}/${f}`);
+        minimifyImage(`${imagesFolder}/${photographerId}/${f}`);
       }
       if (f === 'medias') {
         fs.readdirSync(`${imagesFolder}/${photographerId}/medias`)
           .forEach((f2) => {
             if (f2.endsWith('.jpg')) {
-              minimifyImage(`${photographerId}/medias/${f2}`);
-            } else {
-              fs.cp(`${imagesFolder}/${photographerId}/medias/${f2}`, `${destFolder}/${photographerId}/medias/${f2}`, (err) => {
-                if (err) {
-                  console.log(err);
-                }
-              });
+              minimifyImage(`${imagesFolder}/${photographerId}/medias/${f2}`);
             }
           });
       }

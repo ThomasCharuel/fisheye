@@ -8,6 +8,7 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(196, 196, 196, 0.8);
+  backdrop-filter: blur(10px);
 
   &__container {
     position: relative;

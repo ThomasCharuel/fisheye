@@ -17,17 +17,21 @@
 </head>
 
 <body>
-    <header class="banner">
-        <a href="/index.html" class="banner__homepage-link">
-            <img src="/assets/images/logo.png" class="banner__logo">
+    <header class="banner" role="banner">
+        <a aria-label="FishEye" href="/index.html" class="banner__homepage-link">
+            <img alt="Fisheye Home page" src="/assets/images/logo.png" class="banner__logo">
         </a>
     </header>
     <main>
         <div class="photographer-header-wrapper"></div>
         <div class="medias-sort-section">
-            <span class="medias-sort-section__label">Trier par</span>
+            <span id="medias-sort-section__label" class="medias-sort-section__label">Trier par</span>
             <div class="medias-sort-section__dropdown-btn dropdown-btn">
-                <button class="dropdown-btn__menu-item dropdown-btn__cta cta-btn" value="likes">
+                <button 
+                    aria-labelledby="medias-sort-section__label"
+                    aria-haspopup="listbox"
+                    class="dropdown-btn__menu-item dropdown-btn__cta cta-btn" 
+                    value="likes">
                     <span class="medias-sort-section__dropdown-btn-text dropdown-btn__cta-text">Popularité</span>
                     <i class="dropdown-btn__cta-icon fa-solid fa-chevron-down"></i>
                 </button>
@@ -39,8 +43,7 @@
             </div>
         </div>
         <ul class="medias-section"></ul>
-        <aside class="photographer-info-section">
-        </aside>
+        <aside class="photographer-info-section"></aside>
     </main>
     <div class="media-lightbox-placeholder"></div>
     <div class="contact-form-placeholder"></div>

@@ -13,8 +13,13 @@ export default class PhotographerHeader {
         <p class="photographer-header__location">${this.photographer.getCity()}, ${this.photographer.getCountry()}</p>
         <p class="photographer-header__tagline">${this.photographer.getTagline()}</p>
       </div>
-      <button class="photographer-header__contact-btn cta-btn">Contactez-moi</button>
-      <img src="${this.photographer.getPortrait()}" class="photographer-header__image">
+      <button 
+        aria-label="Contact Me"
+        class="photographer-header__contact-btn cta-btn">Contactez-moi</button>
+      <img 
+        alt="${this.photographer.getName()}"
+        src="${this.photographer.getPortrait()}" 
+        class="photographer-header__image">
     `;
 
     // Handle open contact button click

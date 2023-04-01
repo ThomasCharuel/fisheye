@@ -30,14 +30,21 @@ export default class MediaCard {
 
     if (this.media instanceof ImageMedia) {
       thumbnailHTML = `
-        <img src="${this.media.getMiniImageUrl()}" class="media-card__thumbnail">
+        <img 
+          alt="${this.media.getTitle()}" 
+          src="${this.media.getMiniImageUrl()}" 
+          class="media-card__thumbnail">
       `;
     } else if (this.media instanceof VideoMedia) {
       thumbnailHTML = `
-        <i class="media-card__film-icon fa-regular fa-circle-play"></i>
-        <video class="media-card__thumbnail">
+        <i aria-label="Play Video" class="media-card__film-icon fa-regular fa-circle-play"></i>
+        <video 
+          title="${this.media.getTitle()}" 
+          class="media-card__thumbnail">
           <i class="fa-solid fa-film"></i>
-          <source src="${this.media.getVideo()}" type="video/mp4">
+          <source
+            src="${this.media.getVideo()}" 
+            type="video/mp4">
         </video>
       `;
     } else {
@@ -54,7 +61,7 @@ export default class MediaCard {
             <p class="media-card__title">${this.media.getTitle()}</p>
             <p class="media-card__likes">
               <span class="media-card__likes-counter">${this.media.getLikes()}</span>
-              <span class="media-card__likes-btn like-btn${this.media.getHasUserLiked() ? ' btn-liked' : ''}">
+              <span aria-label="Like" class="media-card__likes-btn like-btn${this.media.getHasUserLiked() ? ' btn-liked' : ''}">
                 <i class="outline-heart fa-regular fa-heart"></i>
                 <i class="filled-heart fa-solid fa-heart"></i>
               </span>

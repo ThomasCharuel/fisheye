@@ -15,11 +15,17 @@ export default class MediaLightbox {
 
     if (this.media instanceof ImageMedia) {
       mediaHTML = `
-        <img src="${this.media.getImageUrl()}" class="media-lightbox__media">
+        <img 
+          alt="${this.media.getTitle()}"
+          src="${this.media.getImageUrl()}"
+          class="media-lightbox__media">
       `;
     } else if (this.media instanceof VideoMedia) {
       mediaHTML = `
-        <video class="media-lightbox__media" controls>
+        <video 
+          title="${this.media.getTitle()}"
+          class="media-lightbox__media" 
+          controls>
           <source src="${this.media.getVideo()}" type="video/mp4">
         </video>
       `;
@@ -29,13 +35,15 @@ export default class MediaLightbox {
     const isLastMediaInMedias = this.photographer.isMediaLastInMedias(this.media);
 
     wrapper.innerHTML = `
-      <div class="media-lightbox__container">
-          ${isFirstMediaInMedias ? '' : '<i class="control-left-btn fa-solid fa-angle-left"></i>'}
-          ${mediaHTML}
-          <i class="control-close-btn fa-solid fa-xmark"></i>
-          ${isLastMediaInMedias ? '' : '<i class="control-right-btn fa-solid fa-angle-right"></i>'}
-          <p class="media-lightbox__title">${this.media.getTitle()}</p>
-        </div>
+      <div 
+        role="dialog"
+        aria-label="image closeup view"
+        class="media-lightbox__container">
+        ${isFirstMediaInMedias ? '' : '<i aria-label="Previous image" class="control-left-btn fa-solid fa-angle-left"></i>'}
+        ${mediaHTML}
+        <i aria-label="Close dialog" class="control-close-btn fa-solid fa-xmark"></i>
+        ${isLastMediaInMedias ? '' : '<i aria-label="Next image" class="control-right-btn fa-solid fa-angle-right"></i>'}
+        <p class="media-lightbox__title">${this.media.getTitle()}</p>
       </div>
     `;
 

@@ -8,12 +8,19 @@ export default class PhotographerContactForm {
     wrapper.classList.add('contact-form');
 
     wrapper.innerHTML = `
-      <div class="contact-form__container">
+      <div 
+        class="contact-form__container"
+        role="dialog"
+        aria-labelledby="contact-form__title">
         <header class="contact-form__header">
-            <h2 class="contact-form__header-title">
+            <h2 class="contact-form__header-title" id="contact-form__title">
                 Contactez-moi<br>${this.photographer.getName()}</span>
             </h2>
-            <img class="close-btn" src="/assets/images/icons/close.svg">
+            <img 
+              alt="Close Button"
+              aria-label="Close Contact form" 
+              class="close-btn" 
+              src="/assets/images/icons/close.svg">
         </header>
         <form class="contact-form__form">
             <label class="contact-form__form-label">Prénom

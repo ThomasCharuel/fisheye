@@ -10,6 +10,7 @@ export default class MediaLightbox {
   create() {
     const wrapper = document.createElement('div');
     wrapper.classList.add('media-lightbox');
+    wrapper.setAttribute('tabindex', -1);
 
     let mediaHTML;
 
@@ -42,18 +43,26 @@ export default class MediaLightbox {
       <div 
         role="dialog"
         aria-label="image closeup view"
+        aria-describedby="media-lightbox__title"
         class="media-lightbox__container">
         ${isFirstMediaInMedias ? '' : '<i aria-label="Previous image" class="control-left-btn fa-solid fa-angle-left"></i>'}
         ${mediaHTML}
         <i aria-label="Close dialog" class="control-close-btn fa-solid fa-xmark"></i>
         ${isLastMediaInMedias ? '' : '<i aria-label="Next image" class="control-right-btn fa-solid fa-angle-right"></i>'}
-        <p class="media-lightbox__title">${this.media.getTitle()}</p>
+        <p class="media-lightbox__title" id="media-lightbox__title">${this.media.getTitle()}</p>
       </div>
     `;
 
     // Handle close lightbox button click
     wrapper.querySelector('.control-close-btn')
-      .addEventListener('click', this.photographer.closeMediaLightboxModal);
+      .addEventListener('click', () => this.photographer.closeMediaLightboxModal(this.media));
+
+    // Close form on escape key pressed
+    wrapper.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.photographer.closeMediaLightboxModal(this.media);
+      }
+    });
 
     // Handle right/left button click
     if (!isFirstMediaInMedias) {

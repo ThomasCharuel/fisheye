@@ -22,7 +22,7 @@
             <img alt="Logo de FishEye - Home page" src="/assets/images/logo.png" class="banner__logo">
         </a>
     </header>
-    <main>
+    <main aria-hidden="false">
         <div class="photographer-header-wrapper"></div>
         <div class="medias-sort-section">
             <span id="medias-sort-section__label" class="medias-sort-section__label">Trier par</span>
@@ -47,8 +47,8 @@
         <ul class="medias-section"></ul>
         <aside class="photographer-info-section"></aside>
     </main>
-    <div class="media-lightbox-placeholder"></div>
-    <div class="contact-form-placeholder"></div>
+    <div aria-hidden="true" class="media-lightbox-placeholder"></div>
+    <div aria-hidden="true" class="contact-form-placeholder"></div>
     <script src="/scripts/pages/photographer.js" type="module"></script>
 </body>
 

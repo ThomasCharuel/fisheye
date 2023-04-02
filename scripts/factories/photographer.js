@@ -18,13 +18,33 @@ export default function createPhotographer(data) {
   photographer.createContactForm = () => new PhotographerContactForm(photographer).create();
 
   photographer.openMediaLightboxModal = (media) => {
+    const mainElement = document.querySelector('main');
+    // Hide main from screen readers
+    mainElement.setAttribute('aria-hidden', 'true');
+
     const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
     mediaLightbox.appendChild(new MediaLightbox(media, photographer).create());
+    // Show lightbox to screen readers
+    mediaLightbox.setAttribute('aria-hidden', 'false');
+
+    // Set focus on close lightbox button
+    const closeLightboxButton = mediaLightbox.querySelector('.control-close-btn');
+    closeLightboxButton.focus();
   };
 
-  photographer.closeMediaLightboxModal = () => {
+  photographer.closeMediaLightboxModal = (media) => {
+    const mainElement = document.querySelector('main');
+    // Show main to screen readers
+    mainElement.setAttribute('aria-hidden', 'false');
+
     const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
+    // Hide lightbox from screen readers
+    mediaLightbox.setAttribute('aria-hidden', 'true');
     mediaLightbox.replaceChildren();
+
+    // Set focus on the media card
+    const mediaCardLink = document.querySelector(`#media-card-${media.getId()} a`);
+    mediaCardLink.focus();
   };
 
   photographer.slideLeftMediaLightbox = (media) => {
@@ -33,6 +53,9 @@ export default function createPhotographer(data) {
     mediaLightbox.appendChild(
       new MediaLightbox(photographer.getPreviousMedia(media), photographer).create(),
     );
+    // Set focus on previous lightbox button or close button
+    const previousLightboxButton = mediaLightbox.querySelector('.control-left-btn, .control-close-btn');
+    previousLightboxButton.focus();
   };
 
   photographer.slideRightMediaLightbox = (media) => {
@@ -41,16 +64,39 @@ export default function createPhotographer(data) {
     mediaLightbox.appendChild(
       new MediaLightbox(photographer.getNextMedia(media), photographer).create(),
     );
+    // Set focus on next lightbox button or close button
+    const nextLightboxButton = mediaLightbox.querySelector('.control-right-btn, .control-close-btn');
+    nextLightboxButton.focus();
   };
 
   photographer.openContactFormModal = () => {
+    const mainElement = document.querySelector('main');
+    // Hide main from screen readers
+    mainElement.setAttribute('aria-hidden', 'true');
+
     const photographerContactForm = document.querySelector('.contact-form-placeholder');
     photographerContactForm.appendChild(new PhotographerContactForm(photographer).create());
+    // Show modal to screen readers
+    photographerContactForm.setAttribute('aria-hidden', 'false');
+
+    // Set focus on first form field
+    const firstFormInput = photographerContactForm.querySelector('input');
+    firstFormInput.focus();
   };
 
   photographer.closeContactFormModal = () => {
+    const mainElement = document.querySelector('main');
+    // Show main to screen readers
+    mainElement.setAttribute('aria-hidden', 'false');
+
     const photographerContactForm = document.querySelector('.contact-form-placeholder');
+    // Hide modal from screen readers
+    photographerContactForm.setAttribute('aria-hidden', 'true');
     photographerContactForm.replaceChildren();
+
+    // Set focus on open modal button
+    const openModalButton = document.querySelector('.photographer-header__contact-btn');
+    openModalButton.focus();
   };
 
   photographer.handleContactFormSubmit = (e) => {

@@ -53,9 +53,9 @@ export default class MediaCard {
     this.wrapper.innerHTML = `
       <li id="media-card-${this.media.getId()}">
         <article class="media-card">
-          <div class="media-card__thumbnail-wrapper">
+          <a href="#" class="media-card__thumbnail-wrapper">
             ${thumbnailHTML}
-          </div>
+          </a>
           <div class="media-card__info-wrapper">
             <p class="media-card__title">${this.media.getTitle()}</p>
             <p class="media-card__likes">
@@ -72,8 +72,8 @@ export default class MediaCard {
     this.handleLikeButton();
 
     // Open lightbox if click on media card
-    this.wrapper.querySelectorAll('.media-card__thumbnail-wrapper, .media-card__title')
-      .forEach((el) => el.addEventListener('click', () => this.openLightboxModal(this.media)));
+    this.wrapper.querySelector('.media-card__thumbnail-wrapper')
+      .addEventListener('click', () => this.openLightboxModal(this.media));
 
     return this.wrapper;
   }

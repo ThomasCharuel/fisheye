@@ -239,7 +239,6 @@ body {
   backdrop-filter: blur(10px);
 }
 .media-lightbox__container {
-  position: relative;
   margin: 10vh;
   height: 80vh;
   display: grid;

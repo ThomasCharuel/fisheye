@@ -27,6 +27,10 @@ export default class MediaLightbox {
           class="media-lightbox__media" 
           controls>
           <source src="${this.media.getVideo()}" type="video/mp4">
+          <p>
+            Votre navigateur ne permet pas de lire les vidéos.
+            Voici le lien de téléchargement: <a href="${this.media.getVideo()}">${this.media.getTitle()}</a>
+          </p>
         </video>
       `;
     }

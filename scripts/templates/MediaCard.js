@@ -41,7 +41,6 @@ export default class MediaCard {
         <video 
           title="${this.media.getTitle()}" 
           class="media-card__thumbnail">
-          <i class="fa-solid fa-film"></i>
           <source
             src="${this.media.getVideo()}" 
             type="video/mp4">

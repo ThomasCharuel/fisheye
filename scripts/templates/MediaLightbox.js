@@ -64,14 +64,27 @@ export default class MediaLightbox {
       }
     });
 
-    // Handle right/left button click
+    // Handle left button / key pressed events
     if (!isFirstMediaInMedias) {
       wrapper.querySelector('.control-left-btn')
         .addEventListener('click', () => this.photographer.slideLeftMediaLightbox(this.media));
+
+      wrapper.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          this.photographer.slideLeftMediaLightbox(this.media);
+        }
+      });
     }
+    // Handle right button / key pressed events
     if (!isLastMediaInMedias) {
       wrapper.querySelector('.control-right-btn')
         .addEventListener('click', () => this.photographer.slideRightMediaLightbox(this.media));
+
+      wrapper.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+          this.photographer.slideRightMediaLightbox(this.media);
+        }
+      });
     }
 
     return wrapper;

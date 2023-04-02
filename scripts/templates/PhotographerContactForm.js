@@ -6,12 +6,13 @@ export default class PhotographerContactForm {
   create() {
     const wrapper = document.createElement('div');
     wrapper.classList.add('contact-form');
-    wrapper.setAttribute('tabindex', -1);
+    wrapper.setAttribute('role', 'dialog');
 
     wrapper.innerHTML = `
       <div 
         class="contact-form__container"
-        role="dialog"
+        role="document"
+        tabindex="0"
         aria-describedby="contact-form__title"
         aria-labelledby="contact-form__title">
         <header class="contact-form__header">

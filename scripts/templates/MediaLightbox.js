@@ -10,7 +10,7 @@ export default class MediaLightbox {
   create() {
     const wrapper = document.createElement('div');
     wrapper.classList.add('media-lightbox');
-    wrapper.setAttribute('tabindex', -1);
+    wrapper.setAttribute('role', 'dialog');
 
     let mediaHTML;
 
@@ -41,7 +41,8 @@ export default class MediaLightbox {
 
     wrapper.innerHTML = `
       <div 
-        role="dialog"
+        role="document"
+        tabindex="0"
         aria-label="image closeup view"
         aria-describedby="media-lightbox__title"
         class="media-lightbox__container">

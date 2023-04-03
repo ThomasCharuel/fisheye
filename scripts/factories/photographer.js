@@ -28,7 +28,7 @@ export default function createPhotographer(data) {
     mediaLightbox.replaceChildren();
 
     // Set focus on the media card
-    const mediaCardLink = document.querySelector(`#media-card-${media.getId()} a`);
+    const mediaCardLink = document.querySelector(`#media-card__link-${media.getId()}`);
     mediaCardLink.focus();
   };
 

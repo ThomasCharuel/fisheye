@@ -41,6 +41,7 @@ export default class MediaLightbox {
     wrapper.innerHTML = `
       <div 
         role="document"
+        tabindex="-1"
         aria-label="image closeup view"
         aria-describedby="media-lightbox__title"
         class="media-lightbox__container">

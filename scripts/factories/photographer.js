@@ -17,23 +17,6 @@ export default function createPhotographer(data) {
   photographer.updateInfoSection = () => photographer.infoSectionTemplate.updateLikesCount();
   photographer.createContactForm = () => new PhotographerContactForm(photographer).create();
 
-  photographer.openMediaLightboxModal = (media) => {
-    const mainElement = document.querySelector('main');
-    // Hide main from screen readers
-    mainElement.setAttribute('aria-hidden', 'true');
-
-    const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
-    const mediaLightboxElement = new MediaLightbox(media, photographer).create();
-    mediaLightbox.appendChild(mediaLightboxElement);
-    // Show lightbox to screen readers
-    mediaLightbox.setAttribute('aria-hidden', 'false');
-    mediaLightboxElement.showModal();
-
-    // Set focus on close lightbox button
-    // const closeLightboxButton = mediaLightbox.querySelector('.control-close-btn');
-    // closeLightboxButton.focus();
-  };
-
   photographer.closeMediaLightboxModal = (media) => {
     const mainElement = document.querySelector('main');
     // Show main to screen readers
@@ -49,26 +32,35 @@ export default function createPhotographer(data) {
     mediaCardLink.focus();
   };
 
+  photographer.openMediaLightboxModal = (media) => {
+    const mainElement = document.querySelector('main');
+    // Hide main from screen readers
+    mainElement.setAttribute('aria-hidden', 'true');
+
+    const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
+    const mediaLightboxElement = new MediaLightbox(media, photographer).create();
+    mediaLightbox.appendChild(mediaLightboxElement);
+    // Show lightbox to screen readers
+    mediaLightbox.setAttribute('aria-hidden', 'false');
+    mediaLightboxElement.showModal();
+
+    // Set focus on close lightbox button
+    const closeLightboxButton = mediaLightbox.querySelector('.control-close-btn');
+    closeLightboxButton.focus();
+  };
+
   photographer.slideLeftMediaLightbox = (media) => {
     const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
     mediaLightbox.replaceChildren();
-    mediaLightbox.appendChild(
-      new MediaLightbox(photographer.getPreviousMedia(media), photographer).create(),
-    );
-    // Set focus on previous lightbox button or close button
-    const previousLightboxButton = mediaLightbox.querySelector('.control-left-btn, .control-close-btn');
-    previousLightboxButton.focus();
+
+    photographer.openMediaLightboxModal(photographer.getPreviousMedia(media));
   };
 
   photographer.slideRightMediaLightbox = (media) => {
     const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
     mediaLightbox.replaceChildren();
-    mediaLightbox.appendChild(
-      new MediaLightbox(photographer.getNextMedia(media), photographer).create(),
-    );
-    // Set focus on next lightbox button or close button
-    const nextLightboxButton = mediaLightbox.querySelector('.control-right-btn, .control-close-btn');
-    nextLightboxButton.focus();
+
+    photographer.openMediaLightboxModal(photographer.getNextMedia(media));
   };
 
   photographer.openContactFormModal = () => {

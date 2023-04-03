@@ -42,7 +42,7 @@ body {
 .cta-btn {
   color: white;
   text-align: center;
-  font-size: 18px;
+  font-size: 1.2em;
   font-weight: 700;
   width: 170px;
   height: 70px;
@@ -102,11 +102,8 @@ body {
 .dropdown-btn__cta::before {
   display: none;
 }
-.dropdown-btn__cta-text {
-  font-size: 18px;
-}
 .dropdown-btn__cta-icon {
-  font-size: 20px;
+  font-size: 1.2em;
   transition: transform 0.2s ease-in-out;
 }
 .dropdown-btn__menu {
@@ -159,22 +156,22 @@ body {
 }
 .photographer-card__name {
   color: #D3573C;
-  font-size: 36px;
+  font-size: 2.5em;
   font-weight: 400;
   margin-top: 20px;
 }
 .photographer-card__location {
   color: #901C1C;
-  font-size: 13px;
+  font-size: 1.5em;
 }
 .photographer-card__tagline {
   color: #000000;
-  font-size: 10px;
+  font-size: 1em;
   margin-top: 5px;
 }
 .photographer-card__price {
   color: #757575;
-  font-size: 9px;
+  font-size: 1.2em;
   margin-top: 5px;
 }
 
@@ -199,7 +196,7 @@ body {
   position: absolute;
   right: 15px;
   top: 15px;
-  font-size: 30px;
+  font-size: 2.6em;
   color: #901C1C;
 }
 .media-card__info-wrapper {
@@ -208,7 +205,7 @@ body {
   justify-content: space-between;
   align-items: center;
   color: #901C1C;
-  font-size: 24px;
+  font-size: 1.5em;
 }
 .media-card__title {
   cursor: pointer;
@@ -266,7 +263,7 @@ body {
 .media-lightbox .control-right-btn,
 .media-lightbox .control-close-btn {
   color: #901C1C;
-  font-size: 50px;
+  font-size: 3em;
   padding: 20px;
   margin: -20px;
   cursor: pointer;
@@ -285,7 +282,7 @@ body {
   place-self: center;
 }
 .media-lightbox__title {
-  font-size: 24px;
+  font-size: 1.5em;
   color: #901C1C;
 }
 
@@ -305,7 +302,7 @@ body {
 }
 .banner__title {
   color: #901C1C;
-  font-size: 36px;
+  font-size: 2.5em;
   font-weight: 400;
 }
 
@@ -331,21 +328,20 @@ main {
 }
 .photographer-header__name {
   color: #D3573C;
-  font-size: 64px;
+  font-size: 4em;
   font-weight: 400;
 }
 .photographer-header__location {
   color: #901C1C;
-  font-size: 24px;
+  font-size: 1.5em;
 }
 .photographer-header__tagline {
   color: #525252;
-  font-size: 18px;
+  font-size: 1.2em;
   margin-top: 18px;
 }
 .photographer-header__contact-btn {
   justify-self: center;
-  font-size: 20px;
 }
 .photographer-header__image {
   justify-self: end;
@@ -366,7 +362,7 @@ main {
   justify-content: space-between;
   gap: 50px;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 1.5em;
 }
 .photographer-info-section__likes-counter i {
   padding-left: 6px;
@@ -379,9 +375,10 @@ main {
 }
 .medias-sort-section__label {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.2em;
   margin-right: 25px;
 }
+
 .medias-section {
   margin: 60px 0px;
   display: grid;
@@ -430,13 +427,13 @@ main {
 }
 .contact-form__header-title {
   margin-top: -14px;
-  font-size: 64px;
+  font-size: 4em;
   font-weight: 400;
 }
 .contact-form__header .close-btn {
   cursor: pointer;
   color: white;
-  font-size: 60px;
+  font-size: 3.8em;
   padding: 10px 20px;
   margin: -20px;
 }
@@ -448,14 +445,14 @@ main {
 }
 .contact-form__form-label {
   color: #312E2E;
-  font-size: 36px;
+  font-size: 2.2em;
 }
 .contact-form__form-label input, .contact-form__form-label textarea {
   border: unset;
   width: 100%;
   height: 68px;
   border-radius: 5px;
-  font-size: 36px;
+  font-size: 2.2em;
 }
 .contact-form__form-label input:active, .contact-form__form-label textarea:active {
   border: 1px solid #757575;

@@ -23,13 +23,15 @@ export default function createPhotographer(data) {
     mainElement.setAttribute('aria-hidden', 'true');
 
     const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
-    mediaLightbox.appendChild(new MediaLightbox(media, photographer).create());
+    const mediaLightboxElement = new MediaLightbox(media, photographer).create();
+    mediaLightbox.appendChild(mediaLightboxElement);
     // Show lightbox to screen readers
     mediaLightbox.setAttribute('aria-hidden', 'false');
+    mediaLightboxElement.showModal();
 
     // Set focus on close lightbox button
-    const closeLightboxButton = mediaLightbox.querySelector('.control-close-btn');
-    closeLightboxButton.focus();
+    // const closeLightboxButton = mediaLightbox.querySelector('.control-close-btn');
+    // closeLightboxButton.focus();
   };
 
   photographer.closeMediaLightboxModal = (media) => {
@@ -75,9 +77,11 @@ export default function createPhotographer(data) {
     mainElement.setAttribute('aria-hidden', 'true');
 
     const photographerContactForm = document.querySelector('.contact-form-placeholder');
-    photographerContactForm.appendChild(new PhotographerContactForm(photographer).create());
+    const photographerContactFormModal = new PhotographerContactForm(photographer).create();
+    photographerContactForm.appendChild(photographerContactFormModal);
     // Show modal to screen readers
     photographerContactForm.setAttribute('aria-hidden', 'false');
+    photographerContactFormModal.showModal();
 
     // Set focus on first form field
     const firstFormInput = photographerContactForm.querySelector('input');

@@ -8,9 +8,8 @@ export default class MediaLightbox {
   }
 
   create() {
-    const wrapper = document.createElement('div');
+    const wrapper = document.createElement('dialog');
     wrapper.classList.add('media-lightbox');
-    wrapper.setAttribute('role', 'dialog');
 
     let mediaHTML;
 
@@ -42,7 +41,6 @@ export default class MediaLightbox {
     wrapper.innerHTML = `
       <div 
         role="document"
-        tabindex="0"
         aria-label="image closeup view"
         aria-describedby="media-lightbox__title"
         class="media-lightbox__container">
@@ -58,12 +56,8 @@ export default class MediaLightbox {
     wrapper.querySelector('.control-close-btn')
       .addEventListener('click', () => this.photographer.closeMediaLightboxModal(this.media));
 
-    // Close form on escape key pressed
-    wrapper.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        this.photographer.closeMediaLightboxModal(this.media);
-      }
-    });
+    // Close modal on escape key pressed
+    wrapper.addEventListener('close', () => this.photographer.closeMediaLightboxModal(this.media));
 
     // Handle left button / key pressed events
     if (!isFirstMediaInMedias) {

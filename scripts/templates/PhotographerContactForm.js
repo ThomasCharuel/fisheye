@@ -4,15 +4,13 @@ export default class PhotographerContactForm {
   }
 
   create() {
-    const wrapper = document.createElement('div');
+    const wrapper = document.createElement('dialog');
     wrapper.classList.add('contact-form');
-    wrapper.setAttribute('role', 'dialog');
 
     wrapper.innerHTML = `
       <div 
         class="contact-form__container"
         role="document"
-        tabindex="0"
         aria-describedby="contact-form__title"
         aria-labelledby="contact-form__title">
         <header class="contact-form__header">
@@ -48,11 +46,7 @@ export default class PhotographerContactForm {
       .addEventListener('click', this.photographer.closeContactFormModal);
 
     // Close form on escape key pressed
-    wrapper.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        this.photographer.closeContactFormModal();
-      }
-    });
+    wrapper.addEventListener('close', this.photographer.closeContactFormModal);
 
     // Handle contact form submit
     wrapper.querySelector('input[type="submit"]')

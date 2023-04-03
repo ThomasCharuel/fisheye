@@ -1,4 +1,5 @@
 .media-lightbox {
+  padding: unset;
   display: block;
   position: fixed;
   z-index: 200;
@@ -6,6 +7,8 @@
   left: 0;
   width: 100%;
   height: 100%;
+  max-width: unset;
+  max-height: unset;
   overflow: auto;
   background-color: rgba(196, 196, 196, 0.8);
   backdrop-filter: blur(10px);

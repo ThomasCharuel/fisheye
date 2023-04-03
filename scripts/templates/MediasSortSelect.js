@@ -49,6 +49,7 @@ export default class MediasSortSelect {
           aria-controls="medias-sort-types"
           class="dropdown__cta"
           id="medias-sort-choice"
+          aria-activedescendant="sort-by-${this.sortBy.key}"
         >
           <span id="dropdown-selected-choice" class="dropdown__cta-text">${this.sortBy.name}</span>
           <i class="dropdown__cta-icon fa-solid fa-chevron-down"></i>
@@ -59,8 +60,10 @@ export default class MediasSortSelect {
           class="dropdown__menu"
         >
         ${SORT_TYPES.map((sortType) => `
-          <li ${sortType === this.sortBy ? 'aria-hidden="true" aria-selected="true"' : 'aria-selected="false"'}>
-            <button class="dropdown__cta" id="sort-by-likes-${sortType.key}">${sortType.name}</button>
+          <li 
+            id="sort-by-${sortType.key}"
+            ${sortType === this.sortBy ? 'aria-hidden="true" aria-selected="true"' : 'aria-selected="false"'}>
+            <button class="dropdown__cta" id="btn-sort-by-${sortType.key}">${sortType.name}</button>
           </li>`).join('')}
         </ul>
       </div>
@@ -78,6 +81,8 @@ export default class MediasSortSelect {
         // Update display of sort select
         wrapper.querySelector('#dropdown-selected-choice').innerHTML = this.sortBy.name;
 
+        wrapper.querySelector('#medias-sort-choice').setAttribute('aria-activedescendant', `sort-by-${this.sortBy.key}`);
+
         // Change state for old and new selected choice
         const oldSortItem = wrapper.querySelector('#medias-sort-choices li[aria-selected="true"]');
         oldSortItem.removeAttribute('aria-hidden');
@@ -87,7 +92,7 @@ export default class MediasSortSelect {
         sortItem.parentElement.setAttribute('aria-selected', 'true');
 
         this.toggleDropdown();
-        //this.photographer.changeMediasOrder(this.sortBy.key);
+        this.photographer.changeMediasOrder(this.sortBy.key);
       }));
 
     return wrapper;

@@ -126,5 +126,24 @@ export default function createPhotographer(data) {
     }
   };
 
+  photographer.renderMedias = () => {
+    const mediasSection = document.querySelector('.medias-section');
+    // Empty medias
+    mediasSection.replaceChildren();
+
+    // Add medias to HTML one by one
+    photographer.getMedias()
+      .forEach(
+        (media) => mediasSection.appendChild(
+          media.createCard(photographer.openMediaLightboxModal, photographer.updateInfoSection),
+        ),
+      );
+  };
+
+  photographer.changeMediasOrder = (sortBy) => {
+    photographer.setSortMediasBy(sortBy);
+    photographer.renderMedias();
+  };
+
   return photographer;
 }

@@ -19,25 +19,10 @@ async function getPhotographerData() {
   return photographer;
 }
 
-function changePageTitle(photographer) {
-  document.title = `FishEye - ${photographer.getName()}`;
-}
-
-function displayMedias(photographer) {
-  const mediasSection = document.querySelector('.medias-section');
-  // Empty medias
-  mediasSection.replaceChildren();
-
-  // Add medias to HTML one by one
-  photographer.getMedias()
-    .forEach(
-      (media) => mediasSection.appendChild(
-        media.createCard(photographer.openMediaLightboxModal, photographer.updateInfoSection),
-      ),
-    );
-}
-
 function displayData(photographer) {
+  // Change page title
+  document.title = `FishEye - ${photographer.getName()}`;
+
   const photographerHeader = document.querySelector('.photographer-header-wrapper');
   photographerHeader.appendChild(photographer.createHeader());
 
@@ -45,13 +30,11 @@ function displayData(photographer) {
   photographerInfoSection.innerHTML = photographer.getInfoSectionHTML();
 
   photographer.createMediasSortSelect();
-
-  displayMedias(photographer);
+  photographer.renderMedias();
 }
 
 async function main() {
   const photographer = await getPhotographerData();
-  changePageTitle(photographer);
   displayData(photographer);
 }
 

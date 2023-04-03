@@ -46,9 +46,9 @@ export default class MediaLightbox {
         aria-describedby="media-lightbox__title"
         class="media-lightbox__container">
         <button aria-label="Close dialog" class="control-close-btn"><i class="fa-solid fa-xmark"></i></button>
-        ${isFirstMediaInMedias ? '' : '<a href="#" aria-label="Previous image" class="control-left-btn"><i class="fa-solid fa-angle-left"></i></a>'}
+        ${isFirstMediaInMedias ? '' : '<a href="#" aria-label="Previous media" class="control-left-btn"><i class="fa-solid fa-angle-left"></i></a>'}
         ${mediaHTML}
-        ${isLastMediaInMedias ? '' : '<a href="#" aria-label="Next image" class="control-right-btn"><i class="fa-solid fa-angle-right"></i></a>'}
+        ${isLastMediaInMedias ? '' : '<a href="#" aria-label="Next media" class="control-right-btn"><i class="fa-solid fa-angle-right"></i></a>'}
         <p class="media-lightbox__title" id="media-lightbox__title">${this.media.getTitle()}</p>
       </div>
     `;

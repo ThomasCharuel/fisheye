@@ -53,7 +53,7 @@ export default class MediaCard {
     this.wrapper.innerHTML = `
       <li id="media-card-${this.media.getId()}">
         <article class="media-card">
-          <a href="#" class="media-card__thumbnail-wrapper">
+          <a aria-label="Open media" href="#mediaId=${this.media.getId()}" class="media-card__thumbnail-wrapper">
             ${thumbnailHTML}
           </a>
           <div class="media-card__info-wrapper">

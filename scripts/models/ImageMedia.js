@@ -7,10 +7,10 @@ export default class ImageMedia extends Media {
   }
 
   getMiniImageUrl() {
-    return `/assets/images/photographers/${this.photographerId}/medias/min-${this.image}`;
+    return `/fisheye/assets/images/photographers/${this.photographerId}/medias/min-${this.image}`;
   }
 
   getImageUrl() {
-    return `/assets/images/photographers/${this.photographerId}/medias/${this.image}`;
+    return `/fisheye/assets/images/photographers/${this.photographerId}/medias/${this.image}`;
   }
 }

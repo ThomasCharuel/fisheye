@@ -36,7 +36,7 @@ export default class Photographer {
   }
 
   getPortrait() {
-    return `/assets/images/photographers/${this.id}/min-${this.portrait}`;
+    return `/fisheye/assets/images/photographers/${this.id}/min-${this.portrait}`;
   }
 
   getLikesCount() {

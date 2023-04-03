@@ -2,7 +2,7 @@ import Api from "./Api.js";
 
 export default class MediasApi extends Api {
   constructor() {
-    super('/data/photographers.json');
+    super('/fisheye/data/photographers.json');
   }
 
   async getMedias(photographerId) {

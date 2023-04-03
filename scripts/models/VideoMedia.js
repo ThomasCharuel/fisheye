@@ -7,6 +7,6 @@ export default class VideoMedia extends Media {
   }
 
   getVideo() {
-    return `/assets/images/photographers/${this.photographerId}/medias/${this.video}`;
+    return `/fisheye/assets/images/photographers/${this.photographerId}/medias/${this.video}`;
   }
 }

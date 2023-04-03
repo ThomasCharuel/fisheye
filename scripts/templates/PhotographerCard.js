@@ -7,7 +7,7 @@ export default class PhotographerCard {
     return `
       <li>
         <article class="photographer-card">
-          <a href="/pages/photographer.html?id=${this.photographer.getId()}" class="photographer-card__link">
+          <a href="/fisheye/pages/photographer.html?id=${this.photographer.getId()}" class="photographer-card__link">
             <img 
               alt="${this.photographer.getName()}" 
               src="${this.photographer.getPortrait()}" 

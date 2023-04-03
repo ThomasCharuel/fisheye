@@ -60,10 +60,10 @@ export default class MediaCard {
             <p class="media-card__title">${this.media.getTitle()}</p>
             <p class="media-card__likes">
               <span class="media-card__likes-counter">${this.media.getLikes()}</span>
-              <span aria-label="Like" class="media-card__likes-btn like-btn${this.media.getHasUserLiked() ? ' btn-liked' : ''}">
+              <button aria-label="likes" class="media-card__likes-btn like-btn${this.media.getHasUserLiked() ? ' btn-liked' : ''}">
                 <i class="outline-heart fa-regular fa-heart"></i>
                 <i class="filled-heart fa-solid fa-heart"></i>
-              </span>
+              </button>
             </p>
           </div>
         </article>

@@ -432,6 +432,11 @@ main {
 }
 .contact-form__header .close-btn {
   cursor: pointer;
+  color: white;
+  font-size: 60px;
+  padding: 20px;
+  margin-top: -30px;
+  margin-right: -20px;
 }
 .contact-form__form {
   margin-top: 20px;

@@ -43,10 +43,6 @@ export default function createPhotographer(data) {
     // Show lightbox to screen readers
     mediaLightbox.setAttribute('aria-hidden', 'false');
     mediaLightboxElement.showModal();
-
-    // Set focus on close lightbox button
-    const closeLightboxButton = mediaLightbox.querySelector('.control-close-btn');
-    closeLightboxButton.focus();
   };
 
   photographer.slideLeftMediaLightbox = (media) => {

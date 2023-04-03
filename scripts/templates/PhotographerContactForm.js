@@ -17,11 +17,11 @@ export default class PhotographerContactForm {
             <h2 class="contact-form__header-title" id="contact-form__title">
                 Contactez-moi<br>${this.photographer.getName()}</span>
             </h2>
-            <img 
-              alt="Close Button"
-              aria-label="Close Contact form" 
-              class="close-btn" 
-              src="/assets/images/icons/close.svg">
+            <button
+              aria-label="Close Contact form"
+              class="close-btn">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
         </header>
         <form class="contact-form__form">
             <label class="contact-form__form-label">Prénom

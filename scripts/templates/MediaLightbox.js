@@ -47,7 +47,7 @@ export default class MediaLightbox {
         class="media-lightbox__container">
         ${isFirstMediaInMedias ? '' : '<i aria-label="Previous image" class="control-left-btn fa-solid fa-angle-left"></i>'}
         ${mediaHTML}
-        <i aria-label="Close dialog" class="control-close-btn fa-solid fa-xmark"></i>
+        <button aria-label="Close dialog" class="control-close-btn"><i class="fa-solid fa-xmark"></i></button>
         ${isLastMediaInMedias ? '' : '<i aria-label="Next image" class="control-right-btn fa-solid fa-angle-right"></i>'}
         <p class="media-lightbox__title" id="media-lightbox__title">${this.media.getTitle()}</p>
       </div>

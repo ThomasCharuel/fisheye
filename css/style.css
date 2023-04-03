@@ -34,6 +34,10 @@ button {
   color: unset;
 }
 
+dialog {
+  border-color: transparent;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   font-weight: 400;

@@ -53,6 +53,12 @@ export default function createPhotographer(data) {
     mediaLightbox.replaceChildren();
 
     photographer.openMediaLightboxModal(photographer.getPreviousMedia(media));
+
+    // Set focus on slide left or close button
+    const controlLeftButton = mediaLightbox.querySelector('.control-left-btn');
+    if (controlLeftButton) {
+      controlLeftButton.focus();
+    }
   };
 
   photographer.slideRightMediaLightbox = (media) => {
@@ -60,6 +66,12 @@ export default function createPhotographer(data) {
     mediaLightbox.replaceChildren();
 
     photographer.openMediaLightboxModal(photographer.getNextMedia(media));
+
+    // Set focus on slide right or close button
+    const controlRightButton = mediaLightbox.querySelector('.control-right-btn');
+    if (controlRightButton) {
+      controlRightButton.focus();
+    }
   };
 
   photographer.openContactFormModal = () => {

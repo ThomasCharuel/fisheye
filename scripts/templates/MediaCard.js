@@ -51,23 +51,21 @@ export default class MediaCard {
     }
 
     this.wrapper.innerHTML = `
-      <li id="media-card-${this.media.getId()}">
-        <article class="media-card">
-          <a aria-label="Open media" href="#mediaId=${this.media.getId()}" class="media-card__thumbnail-wrapper">
-            ${thumbnailHTML}
-          </a>
-          <div class="media-card__info-wrapper">
-            <p class="media-card__title">${this.media.getTitle()}</p>
-            <p class="media-card__likes">
-              <span class="media-card__likes-counter">${this.media.getLikes()}</span>
-              <button aria-label="likes" class="media-card__likes-btn like-btn${this.media.getHasUserLiked() ? ' btn-liked' : ''}">
-                <i class="outline-heart fa-regular fa-heart"></i>
-                <i class="filled-heart fa-solid fa-heart"></i>
-              </button>
-            </p>
-          </div>
-        </article>
-      </li>
+      <article class="media-card">
+        <a aria-label="Open media" href="#mediaId=${this.media.getId()}" class="media-card__thumbnail-wrapper">
+          ${thumbnailHTML}
+        </a>
+        <div class="media-card__info-wrapper">
+          <p class="media-card__title">${this.media.getTitle()}</p>
+          <p class="media-card__likes">
+            <span class="media-card__likes-counter">${this.media.getLikes()}</span>
+            <button aria-label="likes" class="media-card__likes-btn like-btn${this.media.getHasUserLiked() ? ' btn-liked' : ''}">
+              <i class="outline-heart fa-regular fa-heart"></i>
+              <i class="filled-heart fa-solid fa-heart"></i>
+            </button>
+          </p>
+        </div>
+      </article>
     `;
     this.handleLikeButton();
 

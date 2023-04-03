@@ -44,20 +44,14 @@ function displayData(photographer) {
   const photographerInfoSection = document.querySelector('.photographer-info-section');
   photographerInfoSection.innerHTML = photographer.getInfoSectionHTML();
 
+  photographer.createMediasSortSelect();
+
   displayMedias(photographer);
 }
 
 async function main() {
   const photographer = await getPhotographerData();
-
-  document.querySelectorAll('.dropdown-btn__menu-item')
-    .forEach((sortItem) => sortItem.addEventListener('click', () => {
-      photographer.setSortMediasBy(sortItem.getAttribute('value'));
-      displayMedias(photographer);
-    }));
-
   changePageTitle(photographer);
-
   displayData(photographer);
 }
 

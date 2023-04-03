@@ -4,6 +4,7 @@ import PhotographerCard from '../templates/PhotographerCard.js';
 import PhotographerHeader from '../templates/PhotographerHeader.js';
 import PhotographerInfoSection from '../templates/PhotographerInfoSection.js';
 import PhotographerContactForm from '../templates/PhotographerContactForm.js';
+import MediasSortSelect from '../templates/MediasSortSelect.js';
 
 export default function createPhotographer(data) {
   const photographer = new Photographer(data);
@@ -16,6 +17,12 @@ export default function createPhotographer(data) {
   };
   photographer.updateInfoSection = () => photographer.infoSectionTemplate.updateLikesCount();
   photographer.createContactForm = () => new PhotographerContactForm(photographer).create();
+
+  photographer.createMediasSortSelect = () => {
+    const mediasSortSelect = new MediasSortSelect(photographer).create();
+    const mediasSortSelectPlaceholder = document.querySelector('.media-sort-section-placeholder');
+    mediasSortSelectPlaceholder.appendChild(mediasSortSelect);
+  };
 
   photographer.closeMediaLightboxModal = (media) => {
     const mainElement = document.querySelector('main');

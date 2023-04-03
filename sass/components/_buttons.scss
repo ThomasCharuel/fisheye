@@ -1,4 +1,5 @@
 .cta-btn {
+  @include hover-focus-transition;
   color: $color-white;
   text-align: center;
   font-size: 1.2em;
@@ -8,7 +9,6 @@
   border: none;
   background-color: $color-primary;
   border-radius: 5px;
-  cursor: pointer;
 
   &:hover, &:focus {
     color: $color-black;
@@ -17,7 +17,7 @@
 }
 
 .like-btn {
-  cursor: pointer;
+  @include hover-focus-transition(120%);
   position: relative;
   display: inline-block;
   height: 1em;

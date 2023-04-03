@@ -8,6 +8,8 @@
 
   &__homepage-link {
     display: flex;
+    
+    @include hover-focus-transition;
   }
 
   &__logo {

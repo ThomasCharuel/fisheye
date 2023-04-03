@@ -45,11 +45,11 @@
   .control-left-btn, 
   .control-right-btn, 
   .control-close-btn {
+    @include hover-focus-transition(120%);
     color: $color-primary;
     font-size: 3em;
     padding: 20px;
     margin: -20px;
-    cursor: pointer;
   }
 
   &__title {

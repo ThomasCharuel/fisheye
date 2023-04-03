@@ -1,0 +1,7 @@
+@mixin hover-focus-transition($scale: 110%) {
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+  &:hover, &:focus {
+    transform: scale($scale);
+  }
+}

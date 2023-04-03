@@ -40,6 +40,8 @@ body {
 }
 
 .cta-btn {
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
   color: white;
   text-align: center;
   font-size: 1.2em;
@@ -49,7 +51,9 @@ body {
   border: none;
   background-color: #901C1C;
   border-radius: 5px;
-  cursor: pointer;
+}
+.cta-btn:hover, .cta-btn:focus {
+  transform: scale(110%);
 }
 .cta-btn:hover, .cta-btn:focus {
   color: #000000;
@@ -58,10 +62,14 @@ body {
 
 .like-btn {
   cursor: pointer;
+  transition: transform 0.1s ease-in-out;
   position: relative;
   display: inline-block;
   height: 1em;
   width: 1em;
+}
+.like-btn:hover, .like-btn:focus {
+  transform: scale(120%);
 }
 .like-btn .outline-heart, .like-btn .filled-heart {
   position: absolute;
@@ -142,9 +150,14 @@ body {
   flex-direction: column;
 }
 .photographer-card__link {
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.photographer-card__link:hover, .photographer-card__link:focus {
+  transform: scale(105%);
 }
 .photographer-card__image {
   object-fit: cover;
@@ -184,13 +197,18 @@ body {
 }
 .media-card__thumbnail-wrapper {
   cursor: pointer;
-  display: block;
+  transition: transform 0.1s ease-in-out;
+  height: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.media-card__thumbnail-wrapper:hover, .media-card__thumbnail-wrapper:focus {
+  transform: scale(105%);
 }
 .media-card__thumbnail {
   width: 100%;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 5px;
 }
 .media-card__film-icon {
   position: absolute;
@@ -262,11 +280,19 @@ body {
 .media-lightbox .control-left-btn,
 .media-lightbox .control-right-btn,
 .media-lightbox .control-close-btn {
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
   color: #901C1C;
   font-size: 3em;
   padding: 20px;
   margin: -20px;
-  cursor: pointer;
+}
+.media-lightbox .control-left-btn:hover, .media-lightbox .control-left-btn:focus,
+.media-lightbox .control-right-btn:hover,
+.media-lightbox .control-right-btn:focus,
+.media-lightbox .control-close-btn:hover,
+.media-lightbox .control-close-btn:focus {
+  transform: scale(120%);
 }
 .media-lightbox__title {
   margin-top: 10px;
@@ -296,6 +322,11 @@ body {
 }
 .banner__homepage-link {
   display: flex;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+.banner__homepage-link:hover, .banner__homepage-link:focus {
+  transform: scale(110%);
 }
 .banner__logo {
   height: 50px;
@@ -382,13 +413,12 @@ main {
 .medias-section {
   margin: 60px 0px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: 50px;
   row-gap: 20px;
   justify-items: center;
 }
 .medias-section li {
-  overflow: hidden;
   width: 100%;
   max-width: 450px;
 }
@@ -432,10 +462,14 @@ main {
 }
 .contact-form__header .close-btn {
   cursor: pointer;
+  transition: transform 0.1s ease-in-out;
   color: white;
   font-size: 3.8em;
   padding: 10px 20px;
   margin: -20px;
+}
+.contact-form__header .close-btn:hover, .contact-form__header .close-btn:focus {
+  transform: scale(120%);
 }
 .contact-form__form {
   margin-top: 20px;
@@ -452,10 +486,11 @@ main {
   width: 100%;
   height: 68px;
   border-radius: 5px;
-  font-size: 2.2em;
+  font-size: 1em;
 }
-.contact-form__form-label input:active, .contact-form__form-label textarea:active {
-  border: 1px solid #757575;
+.contact-form__form-label input:hover, .contact-form__form-label input:focus, .contact-form__form-label textarea:hover, .contact-form__form-label textarea:focus {
+  outline: unset;
+  border: 4px solid #901C1C;
 }
 .contact-form__form-label textarea {
   height: 170px;

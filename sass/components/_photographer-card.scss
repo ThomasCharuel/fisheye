@@ -6,6 +6,7 @@
   flex-direction: column;
 
   &__link {
+    @include hover-focus-transition(105%);
     display: flex;
     flex-direction: column;
     align-items: center;

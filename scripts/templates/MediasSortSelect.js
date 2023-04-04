@@ -73,6 +73,30 @@ export default class MediasSortSelect {
     wrapper.querySelector('#medias-sort-choice')
       .addEventListener('click', this.toggleDropdown);
 
+    wrapper.addEventListener('keydown', (e) => {
+      const dropDownButton = wrapper.querySelector('#medias-sort-choice');
+
+      const menuButtons = [
+        dropDownButton,
+        ...wrapper.querySelectorAll('#medias-sort-choices li[aria-selected="false"] .dropdown__cta')];
+
+      // Test if menu is showing (aria-expanded)
+      const isMenuExpanded = dropDownButton.getAttribute('aria-expanded') === 'true';
+
+      if (isMenuExpanded) {
+        // Shift focus to previous item (if exist)
+        if (e.key === 'ArrowUp' && e.target !== menuButtons[0]) {
+          const previousItem = menuButtons.at(menuButtons.indexOf(e.target) - 1);
+          previousItem.focus();
+        } else if (e.key === 'ArrowDown' && e.target !== menuButtons.at(-1)) {
+          // Shift focus to next item (if exist)
+          const nextItem = menuButtons.at(menuButtons.indexOf(e.target) + 1);
+          nextItem.focus();
+        }
+      }
+    });
+
+    // Handle click on menu item
     wrapper.querySelectorAll('.dropdown__menu .dropdown__cta')
       .forEach((sortItem) => sortItem.addEventListener('click', () => {
         // Get new sort key

@@ -3,7 +3,7 @@ import MediasApi from "../api/MediasApi.js";
 import createPhotographer from "../factories/photographer.js";
 import createMedia from "../factories/media.js";
 
-async function getPhotographerData() {
+async function loadPhotographer() {
   const urlParams = new URLSearchParams(window.location.search);
   const photographerId = Number(urlParams.get('id'));
 
@@ -28,7 +28,7 @@ function displayData(photographer) {
 }
 
 async function main() {
-  const photographer = await getPhotographerData();
+  const photographer = await loadPhotographer();
   displayData(photographer);
 }
 

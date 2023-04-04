@@ -10,14 +10,13 @@ export default class PhotographerContactForm {
       <div 
         class="contact-form__container"
         role="document"
-        aria-describedby="contact-form__title"
         aria-labelledby="contact-form__title">
         <header class="contact-form__header">
             <h2 class="contact-form__header-title" id="contact-form__title">
                 Contactez-moi<br>${this.photographer.getName()}</span>
             </h2>
             <button
-              aria-label="Close Contact form"
+              aria-label="Fermer le formulaire de contact"
               class="close-btn">
               <i class="fa-solid fa-xmark"></i>
             </button>

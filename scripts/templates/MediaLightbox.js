@@ -39,17 +39,15 @@ export default class MediaLightbox {
     const isLastMediaInMedias = this.photographer.isMediaLastInMedias(this.media);
 
     this.wrapper.innerHTML = `
-      <div 
-        role="document"
+      <div
         tabindex="-1"
-        aria-label="image closeup view"
-        aria-describedby="media-lightbox__title"
+        aria-label="Média ${this.media.getTitle()} en plein écran"
         class="media-lightbox__container">
-        <button aria-label="Close dialog" class="control-close-btn"><i class="fa-solid fa-xmark"></i></button>
-        ${isFirstMediaInMedias ? '' : '<a href="#" aria-label="Previous media" class="control-left-btn"><i class="fa-solid fa-angle-left"></i></a>'}
+        <button aria-label="Ferme le média" class="control-close-btn"><i class="fa-solid fa-xmark"></i></button>
+        ${isFirstMediaInMedias ? '' : '<a href="#" aria-label="Media précédent" class="control-left-btn"><i class="fa-solid fa-angle-left"></i></a>'}
         ${mediaHTML}
-        ${isLastMediaInMedias ? '' : '<a href="#" aria-label="Next media" class="control-right-btn"><i class="fa-solid fa-angle-right"></i></a>'}
-        <p class="media-lightbox__title" id="media-lightbox__title">${this.media.getTitle()}</p>
+        ${isLastMediaInMedias ? '' : '<a href="#" aria-label="Media suivant" class="control-right-btn"><i class="fa-solid fa-angle-right"></i></a>'}
+        <p class="media-lightbox__title">${this.media.getTitle()}</p>
       </div>
     `;
 

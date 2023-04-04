@@ -33,7 +33,7 @@ export default class MediaCard {
       `;
     } else if (this.media instanceof VideoMedia) {
       thumbnailHTML = `
-        <i aria-label="Play Video" class="media-card__film-icon fa-regular fa-circle-play"></i>
+        <i aria-label="Lire la video" class="media-card__film-icon fa-regular fa-circle-play"></i>
         <video 
           title="${this.media.getTitle()}" 
           class="media-card__thumbnail">
@@ -50,7 +50,7 @@ export default class MediaCard {
       <article class="media-card">
         <a 
           id="media-card__link-${this.media.getId()}"
-          aria-label="Open media"
+          aria-label="Ouvre le média"
           href="#mediaId=${this.media.getId()}" 
           class="media-card__thumbnail-wrapper">
           ${thumbnailHTML}
@@ -59,7 +59,7 @@ export default class MediaCard {
           <p class="media-card__title">${this.media.getTitle()}</p>
           <p class="media-card__likes">
             <span class="media-card__likes-counter">${this.media.getLikes()}</span>
-            <button aria-label="likes" class="media-card__likes-btn like-btn${this.media.getHasUserLiked() ? ' btn-liked' : ''}">
+            <button aria-label="J'aime" class="media-card__likes-btn like-btn${this.media.getHasUserLiked() ? ' btn-liked' : ''}">
               <i class="outline-heart fa-regular fa-heart"></i>
               <i class="filled-heart fa-solid fa-heart"></i>
             </button>

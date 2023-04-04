@@ -14,10 +14,10 @@ export default class PhotographerInfoSection {
     return `
       <p class="photographer-info-section__likes-counter">
         <span class="photographer-info-section__likes-counter-text">${formattedLikesCount}</span>
-        <i aria-label="Likes" class="fa-solid fa-heart"></i>
+        <i aria-label="J'aime" class="fa-solid fa-heart"></i>
       </p>
       <p class="photographer-info-section__price">
-        ${this.photographer.getPrice()}€ / jour
+        ${this.photographer.getPrice()}€ <span aria-label="par">/</span> jour
       </p>
     `;
   }

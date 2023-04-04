@@ -19,16 +19,29 @@ export default class MediasSortSelect {
     [this.sortBy] = SORT_TYPES;
   }
 
-  toggleDropdown() {
+  openDropdown() {
     const dropdownMenu = document.querySelector('#medias-sort-choices');
     const dropdownButton = document.querySelector('#medias-sort-choice');
 
+    dropdownMenu.setAttribute('aria-hidden', 'false');
+    dropdownButton.setAttribute('aria-expanded', 'true');
+  }
+
+  closeDropdown() {
+    const dropdownMenu = document.querySelector('#medias-sort-choices');
+    const dropdownButton = document.querySelector('#medias-sort-choice');
+
+    dropdownMenu.setAttribute('aria-hidden', 'true');
+    dropdownButton.setAttribute('aria-expanded', 'false');
+  }
+
+  toggleDropdown() {
+    const dropdownButton = document.querySelector('#medias-sort-choice');
+
     if (dropdownButton.getAttribute('aria-expanded') === 'false') {
-      dropdownMenu.setAttribute('aria-hidden', 'false');
-      dropdownButton.setAttribute('aria-expanded', 'true');
+      this.openDropdown();
     } else {
-      dropdownMenu.setAttribute('aria-hidden', 'true');
-      dropdownButton.setAttribute('aria-expanded', 'false');
+      this.closeDropdown();
     }
 
     // Set focus on dropdownButton
@@ -71,7 +84,16 @@ export default class MediasSortSelect {
 
     // Click on dropdown button
     wrapper.querySelector('#medias-sort-choice')
-      .addEventListener('click', this.toggleDropdown);
+      .addEventListener('click', () => this.toggleDropdown());
+
+    wrapper.addEventListener('focusout', (e) => {
+      // If focus ouside dropdown
+      const menuButtons = [...wrapper.querySelectorAll('.dropdown__cta')];
+
+      if (!menuButtons.includes(e.relatedTarget)) {
+        this.closeDropdown();
+      }
+    });
 
     wrapper.addEventListener('keydown', (e) => {
       const dropDownButton = wrapper.querySelector('#medias-sort-choice');
@@ -92,6 +114,11 @@ export default class MediasSortSelect {
           // Shift focus to next item (if exist)
           const nextItem = menuButtons.at(menuButtons.indexOf(e.target) + 1);
           nextItem.focus();
+        } else {
+          if (e.key === 'Escape') {
+            this.closeDropdown();
+            dropDownButton.focus();
+          }
         }
       }
     });

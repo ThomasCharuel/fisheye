@@ -5,13 +5,13 @@ export default class MediaLightbox {
   constructor(media, photographer) {
     this.media = media;
     this.photographer = photographer;
+
+    this.wrapper = document.createElement('dialog');
+    this.wrapper.classList.add('media-lightbox');
   }
 
-  create() {
-    const wrapper = document.createElement('dialog');
-    wrapper.classList.add('media-lightbox');
-
-    let mediaHTML;
+  getHTML() {
+    let mediaHTML; // HTML for image or video
 
     if (this.media instanceof ImageMedia) {
       mediaHTML = `
@@ -38,7 +38,7 @@ export default class MediaLightbox {
     const isFirstMediaInMedias = this.photographer.isMediaFirstInMedias(this.media);
     const isLastMediaInMedias = this.photographer.isMediaLastInMedias(this.media);
 
-    wrapper.innerHTML = `
+    this.wrapper.innerHTML = `
       <div 
         role="document"
         tabindex="-1"
@@ -53,19 +53,18 @@ export default class MediaLightbox {
       </div>
     `;
 
-    // Handle close lightbox button click
-    wrapper.querySelector('.control-close-btn')
+    // Events Handling
+    this.wrapper.querySelector('.control-close-btn')
       .addEventListener('click', () => this.photographer.closeMediaLightboxModal(this.media));
 
-    // Close modal on escape key pressed
-    wrapper.addEventListener('close', () => this.photographer.closeMediaLightboxModal(this.media));
+    this.wrapper.addEventListener('close', () => this.photographer.closeMediaLightboxModal(this.media));
 
     // Handle left button / key pressed events
     if (!isFirstMediaInMedias) {
-      wrapper.querySelector('.control-left-btn')
+      this.wrapper.querySelector('.control-left-btn')
         .addEventListener('click', () => this.photographer.slideLeftMediaLightbox(this.media));
 
-      wrapper.addEventListener('keydown', (e) => {
+      this.wrapper.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
           this.photographer.slideLeftMediaLightbox(this.media);
         }
@@ -73,16 +72,16 @@ export default class MediaLightbox {
     }
     // Handle right button / key pressed events
     if (!isLastMediaInMedias) {
-      wrapper.querySelector('.control-right-btn')
+      this.wrapper.querySelector('.control-right-btn')
         .addEventListener('click', () => this.photographer.slideRightMediaLightbox(this.media));
 
-      wrapper.addEventListener('keydown', (e) => {
+      this.wrapper.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight') {
           this.photographer.slideRightMediaLightbox(this.media);
         }
       });
     }
 
-    return wrapper;
+    return this.wrapper;
   }
 }

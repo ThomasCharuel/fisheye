@@ -1,13 +1,12 @@
 export default class PhotographerContactForm {
   constructor(photographer) {
     this.photographer = photographer;
+    this.wrapper = document.createElement('dialog');
+    this.wrapper.classList.add('contact-form');
   }
 
-  create() {
-    const wrapper = document.createElement('dialog');
-    wrapper.classList.add('contact-form');
-
-    wrapper.innerHTML = `
+  getHTML() {
+    this.wrapper.innerHTML = `
       <div 
         class="contact-form__container"
         role="document"
@@ -41,17 +40,17 @@ export default class PhotographerContactForm {
       </div>
     `;
 
-    // Close contact form on close button click
-    wrapper.querySelector('.close-btn')
+    // Events handling
+    this.wrapper.querySelector('.close-btn')
       .addEventListener('click', this.photographer.closeContactFormModal);
 
     // Close form on escape key pressed
-    wrapper.addEventListener('close', this.photographer.closeContactFormModal);
+    this.wrapper.addEventListener('close', this.photographer.closeContactFormModal);
 
     // Handle contact form submit
-    wrapper.querySelector('input[type="submit"]')
+    this.wrapper.querySelector('input[type="submit"]')
       .addEventListener('click', this.photographer.handleContactFormSubmit);
 
-    return wrapper;
+    return this.wrapper;
   }
 }

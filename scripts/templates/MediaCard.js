@@ -10,23 +10,19 @@ export default class MediaCard {
     this.wrapper = document.createElement('li');
   }
 
-  handleLikeButton() {
-    this.wrapper.querySelector('.like-btn')
-      .addEventListener('click', (e) => {
-        e.currentTarget.classList.toggle('btn-liked');
+  handleLikeButtonClick(e) {
+    this.media.toggleHasUserLiked();
 
-        this.media.toggleHasUserLiked();
+    // Upadte HTML
+    e.currentTarget.classList.toggle('btn-liked');
+    this.wrapper.querySelector('.media-card__likes-counter').textContent = this.media.getLikes();
 
-        // Update this component likes count
-        this.wrapper.querySelector('.media-card__likes-counter').textContent = this.media.getLikes();
-
-        // Update photographer info: likes count
-        this.updateLikesCount();
-      });
+    // Update photographer info: likes count
+    this.updateLikesCount();
   }
 
-  create() {
-    let thumbnailHTML;
+  getHTML() {
+    let thumbnailHTML; // HTML for media or video
 
     if (this.media instanceof ImageMedia) {
       thumbnailHTML = `
@@ -71,9 +67,11 @@ export default class MediaCard {
         </div>
       </article>
     `;
-    this.handleLikeButton();
 
-    // Open lightbox if click on media card
+    // Events Handling
+    this.wrapper.querySelector('.like-btn')
+      .addEventListener('click', (e) => this.handleLikeButtonClick(e));
+
     this.wrapper.querySelector('.media-card__thumbnail-wrapper')
       .addEventListener('click', () => this.openLightboxModal(this.media));
 

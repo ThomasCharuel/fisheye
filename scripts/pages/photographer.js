@@ -20,16 +20,10 @@ async function getPhotographerData() {
 }
 
 function displayData(photographer) {
-  // Change page title
-  document.title = `FishEye - ${photographer.getName()}`;
-
-  const photographerHeader = document.querySelector('.photographer-header-wrapper');
-  photographerHeader.appendChild(photographer.createHeader());
-
-  const photographerInfoSection = document.querySelector('.photographer-info-section');
-  photographerInfoSection.innerHTML = photographer.getInfoSectionHTML();
-
-  photographer.createMediasSortSelect();
+  photographer.updatePageTitle();
+  photographer.renderHeader();
+  photographer.renderInfoSection();
+  photographer.renderMediasSortSelect();
   photographer.renderMedias();
 }
 

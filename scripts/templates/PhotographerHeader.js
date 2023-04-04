@@ -1,13 +1,12 @@
 export default class PhotographerHeader {
   constructor(photographer) {
     this.photographer = photographer;
+    this.wrapper = document.createElement('header');
+    this.wrapper.classList.add('photographer-header');
   }
 
-  create() {
-    const wrapper = document.createElement('header');
-    wrapper.classList.add('photographer-header');
-
-    wrapper.innerHTML = `
+  getHTML() {
+    this.wrapper.innerHTML = `
       <div>
         <h1 class="photographer-header__name">${this.photographer.getName()}</h1>
         <p class="photographer-header__location">${this.photographer.getCity()}, ${this.photographer.getCountry()}</p>
@@ -22,10 +21,10 @@ export default class PhotographerHeader {
         class="photographer-header__image">
     `;
 
-    // Handle open contact button click
-    wrapper.querySelector('.photographer-header__contact-btn')
+    // Events handling
+    this.wrapper.querySelector('.photographer-header__contact-btn')
       .addEventListener('click', this.photographer.openContactFormModal);
 
-    return wrapper;
+    return this.wrapper;
   }
 }

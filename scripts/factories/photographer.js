@@ -9,17 +9,30 @@ import MediasSortSelect from '../templates/MediasSortSelect.js';
 export default function createPhotographer(data) {
   const photographer = new Photographer(data);
 
-  photographer.getCardHTML = () => new PhotographerCard(photographer).getHTML();
-  photographer.createHeader = () => new PhotographerHeader(photographer).create();
-  photographer.getInfoSectionHTML = () => {
-    photographer.infoSectionTemplate = new PhotographerInfoSection(photographer);
-    return photographer.infoSectionTemplate.getHTML();
+  photographer.updatePageTitle = () => {
+    document.title = `FishEye - ${photographer.getName()}`;
   };
-  photographer.updateInfoSection = () => photographer.infoSectionTemplate.updateLikesCount();
-  photographer.createContactForm = () => new PhotographerContactForm(photographer).create();
 
-  photographer.createMediasSortSelect = () => {
-    const mediasSortSelect = new MediasSortSelect(photographer).create();
+  photographer.getCardHTML = () => new PhotographerCard(photographer).getHTML();
+
+  photographer.renderHeader = () => {
+    const photographerHeader = document.querySelector('.photographer-header-wrapper');
+    photographerHeader.appendChild(
+      new PhotographerHeader(photographer).getHTML(),
+    );
+  };
+
+  photographer.renderInfoSection = () => {
+    const photographerInfoSection = document.querySelector('.photographer-info-section');
+    photographer.infoSectionTemplate = new PhotographerInfoSection(photographer);
+    photographerInfoSection.innerHTML = photographer.infoSectionTemplate.getHTML();
+  };
+
+  photographer.updateInfoSection = () => photographer.infoSectionTemplate.updateLikesCount();
+  photographer.getContactFormHTML = () => new PhotographerContactForm(photographer).getHTML();
+
+  photographer.renderMediasSortSelect = () => {
+    const mediasSortSelect = new MediasSortSelect(photographer).getHTML();
     const mediasSortSelectPlaceholder = document.querySelector('.media-sort-section-placeholder');
     mediasSortSelectPlaceholder.appendChild(mediasSortSelect);
   };
@@ -45,7 +58,7 @@ export default function createPhotographer(data) {
     mainElement.setAttribute('aria-hidden', 'true');
 
     const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
-    const mediaLightboxElement = new MediaLightbox(media, photographer).create();
+    const mediaLightboxElement = new MediaLightbox(media, photographer).getHTML();
     mediaLightbox.appendChild(mediaLightboxElement);
     // Show lightbox to screen readers
     mediaLightbox.setAttribute('aria-hidden', 'false');
@@ -87,7 +100,7 @@ export default function createPhotographer(data) {
     mainElement.setAttribute('aria-hidden', 'true');
 
     const photographerContactForm = document.querySelector('.contact-form-placeholder');
-    const photographerContactFormModal = new PhotographerContactForm(photographer).create();
+    const photographerContactFormModal = new PhotographerContactForm(photographer).getHTML();
     photographerContactForm.appendChild(photographerContactFormModal);
     // Show modal to screen readers
     photographerContactForm.setAttribute('aria-hidden', 'false');
@@ -135,7 +148,7 @@ export default function createPhotographer(data) {
     photographer.getMedias()
       .forEach(
         (media) => mediasSection.appendChild(
-          media.createCard(photographer.openMediaLightboxModal, photographer.updateInfoSection),
+          media.getCardHTML(photographer.openMediaLightboxModal, photographer.updateInfoSection),
         ),
       );
   };

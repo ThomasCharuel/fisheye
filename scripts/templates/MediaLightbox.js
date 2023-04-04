@@ -44,9 +44,9 @@ export default class MediaLightbox {
         aria-label="Média ${this.media.getTitle()} en plein écran"
         class="media-lightbox__container">
         <button aria-label="Ferme le média" class="control-close-btn"><i class="fa-solid fa-xmark"></i></button>
-        ${isFirstMediaInMedias ? '' : '<a href="#" aria-label="Media précédent" class="control-left-btn"><i class="fa-solid fa-angle-left"></i></a>'}
+        ${isFirstMediaInMedias ? '' : '<a href="#media-lightbox-placeholder" aria-label="Media précédent" class="control-left-btn"><i class="fa-solid fa-angle-left"></i></a>'}
         ${mediaHTML}
-        ${isLastMediaInMedias ? '' : '<a href="#" aria-label="Media suivant" class="control-right-btn"><i class="fa-solid fa-angle-right"></i></a>'}
+        ${isLastMediaInMedias ? '' : '<a href="#media-lightbox-placeholder" aria-label="Media suivant" class="control-right-btn"><i class="fa-solid fa-angle-right"></i></a>'}
         <p class="media-lightbox__title">${this.media.getTitle()}</p>
       </div>
     `;

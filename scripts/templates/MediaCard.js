@@ -16,6 +16,8 @@ export default class MediaCard {
     // Upadte HTML
     e.currentTarget.classList.toggle('btn-liked');
     this.wrapper.querySelector('.media-card__likes-counter').textContent = this.media.getLikes();
+    this.wrapper.querySelector('.media-card__likes-btn')
+      .setAttribute('aria-label', this.media.getHasUserLiked() ? 'Ne plus aimer' : 'Aimer');
 
     // Update photographer info: likes count
     this.updateLikesCount();
@@ -33,7 +35,7 @@ export default class MediaCard {
       `;
     } else if (this.media instanceof VideoMedia) {
       thumbnailHTML = `
-        <i aria-label="Lire la video" class="media-card__film-icon fa-regular fa-circle-play"></i>
+        <i title="Lire la video" class="media-card__film-icon fa-regular fa-circle-play"></i>
         <video 
           title="${this.media.getTitle()}" 
           class="media-card__thumbnail">
@@ -51,7 +53,7 @@ export default class MediaCard {
         <a 
           id="media-card__link-${this.media.getId()}"
           aria-label="Ouvre le média"
-          href="#mediaId=${this.media.getId()}" 
+          href="#media-lightbox-placeholder" 
           class="media-card__thumbnail-wrapper">
           ${thumbnailHTML}
         </a>
@@ -59,7 +61,10 @@ export default class MediaCard {
           <p class="media-card__title">${this.media.getTitle()}</p>
           <p class="media-card__likes">
             <span class="media-card__likes-counter">${this.media.getLikes()}</span>
-            <button aria-label="J'aime" class="media-card__likes-btn like-btn${this.media.getHasUserLiked() ? ' btn-liked' : ''}">
+            <button 
+              aria-label="${this.media.getHasUserLiked() ? 'Ne plus aimer' : 'Aimer'}" 
+              class="media-card__likes-btn like-btn ${this.media.getHasUserLiked() ? 'btn-liked' : ''}"
+            >
               <i class="outline-heart fa-regular fa-heart"></i>
               <i class="filled-heart fa-solid fa-heart"></i>
             </button>

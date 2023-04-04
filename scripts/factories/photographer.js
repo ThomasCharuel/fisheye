@@ -42,7 +42,7 @@ export default function createPhotographer(data) {
     // Show main to screen readers
     mainElement.setAttribute('aria-hidden', 'false');
 
-    const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
+    const mediaLightbox = document.querySelector('#media-lightbox-placeholder');
     // Hide lightbox from screen readers
     mediaLightbox.setAttribute('aria-hidden', 'true');
     mediaLightbox.replaceChildren();
@@ -57,7 +57,7 @@ export default function createPhotographer(data) {
     // Hide main from screen readers
     mainElement.setAttribute('aria-hidden', 'true');
 
-    const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
+    const mediaLightbox = document.querySelector('#media-lightbox-placeholder');
     const mediaLightboxElement = new MediaLightbox(media, photographer).getHTML();
     mediaLightbox.appendChild(mediaLightboxElement);
     // Show lightbox to screen readers
@@ -69,7 +69,7 @@ export default function createPhotographer(data) {
   };
 
   photographer.slideLeftMediaLightbox = (media) => {
-    const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
+    const mediaLightbox = document.querySelector('#media-lightbox-placeholder');
     mediaLightbox.replaceChildren();
 
     photographer.openMediaLightboxModal(photographer.getPreviousMedia(media));
@@ -82,7 +82,7 @@ export default function createPhotographer(data) {
   };
 
   photographer.slideRightMediaLightbox = (media) => {
-    const mediaLightbox = document.querySelector('.media-lightbox-placeholder');
+    const mediaLightbox = document.querySelector('#media-lightbox-placeholder');
     mediaLightbox.replaceChildren();
 
     photographer.openMediaLightboxModal(photographer.getNextMedia(media));

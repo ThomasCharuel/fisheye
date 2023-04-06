@@ -13,10 +13,10 @@ export default class PhotographerHeader {
         <p class="photographer-header__tagline">${this.photographer.getTagline()}</p>
       </div>
       <button 
-        aria-label="Contactez-moi"
+        aria-label="Ouvrir le formulaire de contact"
         class="photographer-header__contact-btn cta-btn">Contactez-moi</button>
       <img 
-        alt="Photo de profil de ${this.photographer.getName()}"
+        alt="${this.photographer.getName()}"
         src="${this.photographer.getPortrait()}" 
         class="photographer-header__image">
     `;

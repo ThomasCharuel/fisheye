@@ -384,8 +384,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
-  padding: 0px 100px;
+  padding: 20px 100px;
 }
 .banner__homepage-link {
   display: flex;
@@ -418,7 +417,6 @@ main {
 .photographer-header {
   background-color: #FAFAFA;
   border-radius: 5px;
-  height: 300px;
   padding: 50px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

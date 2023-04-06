@@ -126,19 +126,6 @@ export default function createPhotographer(data) {
     openModalButton.focus();
   };
 
-  photographer.handleContactFormSubmit = (e) => {
-    const contactForm = document.querySelector('.contact-form__form');
-
-    if (contactForm.reportValidity()) {
-      // Get and print inputs in console
-      contactForm.querySelectorAll('input:not([type="submit"]), textarea')
-        .forEach((input) => console.log(`${input.name}: ${input.value}`));
-
-      e.preventDefault(); // Prevent default submit behavior
-      photographer.closeContactFormModal(); // Close modal after submitting
-    }
-  };
-
   photographer.renderMedias = () => {
     const mediasSection = document.querySelector('.medias-section');
     // Empty medias

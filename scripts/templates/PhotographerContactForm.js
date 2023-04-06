@@ -5,6 +5,39 @@ export default class PhotographerContactForm {
     this.wrapper.classList.add('contact-form');
   }
 
+  handleSubmit(e) {
+    const inputs = [...this.wrapper.querySelectorAll('.contact-form__form-input')];
+
+    const inputsValues = inputs.map((input) => {
+      const hintId = `contact-form__input-${input.name}-hint`;
+      const hint = document.getElementById(hintId);
+
+      if (!input.reportValidity()) {
+        hint.setAttribute('aria-hidden', 'false');
+        hint.classList.remove('hidden');
+
+        input.setAttribute('aria-invalid', 'true');
+        input.setAttribute('aria-describedby', hintId);
+
+        return null;
+      }
+      hint.setAttribute('aria-hidden', 'true');
+      hint.classList.add('hidden');
+
+      input.removeAttribute('aria-invalid');
+      input.removeAttribute('aria-describedby');
+
+      return `${input.name}: ${input.value}`;
+    });
+
+    if (!inputsValues.includes(null)) {
+      inputsValues.forEach((inputValue) => console.log(inputValue));
+
+      e.preventDefault(); // Prevent default submit behavior
+      this.photographer.closeContactFormModal(); // Close modal after submitting
+    }
+  }
+
   getHTML() {
     this.wrapper.innerHTML = `
       <div 
@@ -22,18 +55,22 @@ export default class PhotographerContactForm {
             </button>
         </header>
         <form class="contact-form__form">
-            <label class="contact-form__form-label">Prénom
-                <input name="firstname" type="text" autocomplete required>
-            </label>
-            <label class="contact-form__form-label">Nom
-                <input name="lastname" type="text" autocomplete required>
-            </label>
-            <label class="contact-form__form-label">Email
-                <input name="email" type="email" pattern=".+@.+\\..+" autocomplete required>
-            </label>
-            <label class="contact-form__form-label">Votre message
-                <textarea name="message" required></textarea>
-            </label>
+            <label for="contact-form__input-firstname" class="contact-form__form-label">Prénom</label>
+            <input id="contact-form__input-firstname" class="contact-form__form-input" name="firstname" type="text" autocomplete required>
+            <p aria-hidden="true" class="contact-form__form-hint hidden" id="contact-form__input-firstname-hint">Vous devez renseigner votre prénom !</p>
+            
+            <label for="contact-form__input-lastname" class="contact-form__form-label">Nom</label>
+            <input id="contact-form__input-lastname" class="contact-form__form-input" name="lastname" type="text" autocomplete required>
+            <p aria-hidden="true" class="contact-form__form-hint hidden" id="contact-form__input-lastname-hint">Vous devez renseigner votre nom !</p>
+
+            <label for="contact-form__input-email" class="contact-form__form-label">Email</label>
+            <input id="contact-form__input-email" class="contact-form__form-input" name="email" type="email" pattern=".+@.+\\..+" autocomplete required>
+            <p aria-hidden="true" class="contact-form__form-hint hidden" id="contact-form__input-email-hint">Vous devez renseigner une adresse mail valide !</p>
+
+            <label for="contact-form__input-message" class="contact-form__form-label">Votre message</label>
+            <textarea id="contact-form__input-message" class="contact-form__form-input" name="message" required></textarea>
+            <p aria-hidden="true" class="contact-form__form-hint hidden" id="contact-form__input-message-hint">Vous écrire un message !</p>
+
             <input type="submit" value="Envoyer" class="contact_button cta-btn">
         </form>
       </div>
@@ -48,7 +85,7 @@ export default class PhotographerContactForm {
 
     // Handle contact form submit
     this.wrapper.querySelector('input[type="submit"]')
-      .addEventListener('click', this.photographer.handleContactFormSubmit);
+      .addEventListener('click', (e) => this.handleSubmit(e));
 
     return this.wrapper;
   }

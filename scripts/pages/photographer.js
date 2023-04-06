@@ -25,6 +25,7 @@ function displayData(photographer) {
   photographer.renderInfoSection();
   photographer.renderMediasSortSelect();
   photographer.renderMedias();
+  photographer.openContactFormModal();
 }
 
 async function main() {

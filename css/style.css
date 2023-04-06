@@ -540,25 +540,41 @@ main {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 .contact-form__form-label {
   color: #312E2E;
-  font-size: 2.2em;
+  font-size: 2em;
 }
-.contact-form__form-label input, .contact-form__form-label textarea {
+.contact-form__form-input {
   border: unset;
   width: 100%;
   height: 68px;
   border-radius: 5px;
-  font-size: 1em;
+  font-size: 2em;
 }
-.contact-form__form-label input:hover, .contact-form__form-label input:focus, .contact-form__form-label textarea:hover, .contact-form__form-label textarea:focus {
+.contact-form__form-input[aria-invalid=true] {
+  border: 4px solid red;
+}
+.contact-form__form-input:hover, .contact-form__form-input:focus {
   outline: unset;
   border: 4px solid #901C1C;
 }
-.contact-form__form-label textarea {
+textarea.contact-form__form-input {
   height: 170px;
+}
+
+.contact-form__form-hint {
+  color: #901C1C;
+  font-size: 1.2em;
+  opacity: 1;
+  transition: opacity 0.1s ease-in-out, transform 0.3s ease-out;
+}
+.contact-form__form-hint.hidden {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+.contact-form__form input[type=submit] {
+  margin-top: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

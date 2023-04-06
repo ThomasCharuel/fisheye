@@ -22,9 +22,9 @@ async function loadPhotographer() {
 function displayData(photographer) {
   photographer.updatePageTitle();
   photographer.renderHeader();
-  // photographer.renderInfoSection();
+  //photographer.renderInfoSection();
   // photographer.renderMediasSortSelect();
-  // photographer.renderMedias();
+  photographer.renderMedias();
 }
 
 async function main() {

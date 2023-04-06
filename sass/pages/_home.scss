@@ -1,7 +1,6 @@
 .photographers-section {
-  margin: 5rem 5%;
+  margin: 4rem 5%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-  gap: 2rem 8rem;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2rem 2rem;
 }

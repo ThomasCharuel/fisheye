@@ -22,8 +22,8 @@ async function loadPhotographer() {
 function displayData(photographer) {
   photographer.updatePageTitle();
   photographer.renderHeader();
-  //photographer.renderInfoSection();
-  // photographer.renderMediasSortSelect();
+  photographer.renderInfoSection();
+  photographer.renderMediasSortSelect();
   photographer.renderMedias();
 }
 

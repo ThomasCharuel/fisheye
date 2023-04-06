@@ -1,10 +1,28 @@
 .photographer-header {
   background-color: #FAFAFA;
+  margin: 0 10%;
   border-radius: 5px;
-  padding: 50px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  padding: 3rem;
+
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  gap: 4rem;
+
+  &__info-wrapper {
+    flex: 2;
+  }
+
+  &__cta-wrapper {
+    text-align: center;
+    flex: 3;
+  }
+
+  &__img-wrapper {
+    text-align: center;
+    flex: 1;
+  }
 
   &__name {
     color: $color-secondary;
@@ -23,15 +41,10 @@
     margin-top: 18px;
   }
 
-  &__contact-btn {
-    justify-self: center;
-  }
-
   &__image {
-    justify-self: end;
     object-fit: cover;
-    width: 200px;
-    height: 200px;
+    width: 10rem;
+    height: 10rem;
     border-radius: 50%;
   }
 }

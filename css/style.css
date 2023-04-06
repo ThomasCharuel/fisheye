@@ -409,16 +409,30 @@ body {
   margin: 4rem 5%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-  gap: 2rem 2rem;
+  gap: 2rem;
 }
 
 .photographer-header {
   background-color: #FAFAFA;
+  margin: 0 10%;
   border-radius: 5px;
-  padding: 50px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  padding: 3rem;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  gap: 4rem;
+}
+.photographer-header__info-wrapper {
+  flex: 2;
+}
+.photographer-header__cta-wrapper {
+  text-align: center;
+  flex: 3;
+}
+.photographer-header__img-wrapper {
+  text-align: center;
+  flex: 1;
 }
 .photographer-header__name {
   color: #D3573C;
@@ -434,14 +448,10 @@ body {
   font-size: 1.2rem;
   margin-top: 18px;
 }
-.photographer-header__contact-btn {
-  justify-self: center;
-}
 .photographer-header__image {
-  justify-self: end;
   object-fit: cover;
-  width: 200px;
-  height: 200px;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
 }
 

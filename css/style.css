@@ -39,6 +39,7 @@ dialog {
 }
 
 body {
+  font-size: 100%;
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
 }

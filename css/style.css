@@ -236,22 +236,22 @@ body {
 }
 .photographer-card__name {
   color: #D3573C;
-  font-size: 2.5em;
+  font-size: 2.5rem;
   font-weight: 400;
   margin-top: 20px;
 }
 .photographer-card__location {
   color: #901C1C;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 .photographer-card__tagline {
   color: #000000;
-  font-size: 1em;
+  font-size: 1rem;
   margin-top: 5px;
 }
 .photographer-card__price {
   color: #757575;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   margin-top: 5px;
 }
 
@@ -281,7 +281,7 @@ body {
   position: absolute;
   right: 15px;
   top: 15px;
-  font-size: 2.6em;
+  font-size: 2.6rem;
   color: #901C1C;
 }
 .media-card__info-wrapper {
@@ -290,7 +290,7 @@ body {
   justify-content: space-between;
   align-items: center;
   color: #901C1C;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 .media-card__title {
   cursor: pointer;
@@ -350,7 +350,7 @@ body {
   cursor: pointer;
   transition: transform 0.1s ease-in-out;
   color: #901C1C;
-  font-size: 3em;
+  font-size: 3rem;
   padding: 20px;
   margin: -20px;
 }
@@ -375,7 +375,7 @@ body {
   place-self: center;
 }
 .media-lightbox__title {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   color: #901C1C;
 }
 
@@ -399,7 +399,7 @@ body {
 }
 .banner__title {
   color: #901C1C;
-  font-size: 2.5em;
+  font-size: 2.5rem;
   font-weight: 400;
 }
 

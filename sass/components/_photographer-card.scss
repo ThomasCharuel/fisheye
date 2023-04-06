@@ -24,25 +24,25 @@
 
   &__name {
     color: $color-secondary;
-    font-size: 2.5em;
+    font-size: 2.5rem;
     font-weight: $font-weight-regular;
     margin-top: 20px;
   }
 
   &__location {
     color: $color-primary;
-    font-size: 1.5em;
+    font-size: 1.5rem;
   }
 
   &__tagline {
     color: $color-black;
-    font-size: 1em;
+    font-size: 1rem;
     margin-top: 5px;
   }
 
   &__price {
     color: $color-light-grey;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     margin-top: 5px;
   }
 }

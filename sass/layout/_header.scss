@@ -3,7 +3,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 100px;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 10%;
 
   &__homepage-link {
     display: flex;
@@ -11,7 +13,7 @@
   }
 
   &__logo {
-    height: 50px;
+    height: 2.5rem;
   }
 
   &__title {

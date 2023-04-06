@@ -384,7 +384,9 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 100px;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 10%;
 }
 .banner__homepage-link {
   display: flex;
@@ -395,7 +397,7 @@ body {
   transform: scale(110%);
 }
 .banner__logo {
-  height: 50px;
+  height: 2.5rem;
 }
 .banner__title {
   color: #901C1C;
@@ -404,14 +406,11 @@ body {
 }
 
 .photographers-section {
+  margin: 5rem 5%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 70px;
-  margin: 100px 20px;
-}
-
-main {
-  margin: 0 100px;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 2rem 8rem;
 }
 
 .photographer-header {

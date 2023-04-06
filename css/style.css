@@ -39,7 +39,6 @@ dialog {
 }
 
 body {
-  font-size: 100%;
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
 }
@@ -49,7 +48,7 @@ body {
   transition: transform 0.1s ease-in-out;
   color: white;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: 700;
   width: 170px;
   height: 70px;
@@ -70,8 +69,8 @@ body {
   transition: transform 0.1s ease-in-out;
   position: relative;
   display: inline-block;
-  height: 1em;
-  width: 1em;
+  height: 1rem;
+  width: 1rem;
 }
 .like-btn:hover, .like-btn:focus {
   transform: scale(120%);
@@ -116,7 +115,7 @@ body {
   display: none;
 }
 .dropdown-btn__cta-icon {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   transition: transform 0.2s ease-in-out;
 }
 .dropdown-btn__menu {
@@ -149,7 +148,7 @@ body {
 
 .dropdown {
   position: relative;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   width: 170px;
   font-weight: 700;
   color: white;
@@ -425,16 +424,16 @@ main {
 }
 .photographer-header__name {
   color: #D3573C;
-  font-size: 4em;
+  font-size: 4rem;
   font-weight: 400;
 }
 .photographer-header__location {
   color: #901C1C;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 .photographer-header__tagline {
   color: #525252;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   margin-top: 18px;
 }
 .photographer-header__contact-btn {
@@ -459,7 +458,7 @@ main {
   justify-content: space-between;
   gap: 50px;
   font-weight: 500;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 .photographer-info-section__likes-counter i {
   padding-left: 6px;
@@ -472,7 +471,7 @@ main {
 }
 .medias-sort-section__label {
   font-weight: 700;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   margin-right: 25px;
 }
 
@@ -523,14 +522,14 @@ main {
 }
 .contact-form__header-title {
   margin-top: -14px;
-  font-size: 4em;
+  font-size: 4rem;
   font-weight: 400;
 }
 .contact-form__header .close-btn {
   cursor: pointer;
   transition: transform 0.1s ease-in-out;
   color: white;
-  font-size: 3.8em;
+  font-size: 3.8rem;
   padding: 10px 20px;
   margin: -20px;
 }
@@ -544,14 +543,14 @@ main {
 }
 .contact-form__form-label {
   color: #312E2E;
-  font-size: 2em;
+  font-size: 2rem;
 }
 .contact-form__form-input {
   border: unset;
   width: 100%;
   height: 68px;
   border-radius: 5px;
-  font-size: 2em;
+  font-size: 2rem;
 }
 .contact-form__form-input[aria-invalid=true] {
   border: 4px solid red;
@@ -566,7 +565,7 @@ textarea.contact-form__form-input {
 
 .contact-form__form-hint {
   color: #901C1C;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   opacity: 1;
   transition: opacity 0.1s ease-in-out, transform 0.3s ease-out;
 }

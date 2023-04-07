@@ -1,6 +1,5 @@
 @import 'utils/variables';
 @import 'utils/mixins';
-@import 'utils/animations';
 
 @import 'base/reset';
 @import 'base/typography';
@@ -10,6 +9,7 @@
 @import 'components/photographer-card';
 @import 'components/media-card';
 @import 'components/media-lightbox';
+@import 'components/contact-form';
 
 @import 'layout/header';
 

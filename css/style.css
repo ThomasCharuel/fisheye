@@ -50,8 +50,8 @@ body {
   text-align: center;
   font-size: 1.2rem;
   font-weight: 700;
-  width: 170px;
-  height: 70px;
+  width: 11rem;
+  height: 4rem;
   border: none;
   background-color: #901C1C;
   border-radius: 5px;
@@ -94,55 +94,6 @@ body {
 }
 .like-btn:hover .filled-heart {
   opacity: 1;
-}
-
-.dropdown-btn__menu-item {
-  position: relative;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: unset;
-}
-.dropdown-btn__menu-item[checked] {
-  display: none;
-}
-.dropdown-btn__cta {
-  border-radius: 5px;
-}
-.dropdown-btn__cta::before {
-  display: none;
-}
-.dropdown-btn__cta-icon {
-  font-size: 1.2rem;
-  transition: transform 0.2s ease-in-out;
-}
-.dropdown-btn__menu {
-  display: none;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  overflow: hidden;
-  position: absolute;
-  z-index: 100;
-}
-.dropdown-btn__menu-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 5%;
-  height: 1px;
-  width: 90%;
-  background-color: white;
-}
-.dropdown-btn:hover .dropdown-btn__cta {
-  border-bottom-left-radius: unset;
-  border-bottom-right-radius: unset;
-}
-.dropdown-btn:hover .dropdown-btn__cta-icon {
-  transform: rotate(180deg);
-}
-.dropdown-btn:hover .dropdown-btn__menu {
-  display: block;
 }
 
 .dropdown {
@@ -210,9 +161,9 @@ body {
 .photographer-card {
   justify-self: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   text-align: center;
 }
 .photographer-card__link {
@@ -228,8 +179,8 @@ body {
 .photographer-card__image {
   object-fit: cover;
   border-radius: 50%;
-  height: 200px;
-  width: 200px;
+  width: 60%;
+  aspect-ratio: 1/1;
   mask-image: radial-gradient(circle, black 60%, rgba(0, 0, 0, 0.1) 60%, transparent 66%);
   -webkit-mask-image: radial-gradient(circle, black 60%, rgba(0, 0, 0, 0.1) 60%, transparent 68%);
 }
@@ -237,7 +188,7 @@ body {
   color: #D3573C;
   font-size: 2.5rem;
   font-weight: 400;
-  margin-top: 20px;
+  margin-top: 0.8rem;
 }
 .photographer-card__location {
   color: #901C1C;
@@ -246,12 +197,12 @@ body {
 .photographer-card__tagline {
   color: #000000;
   font-size: 1rem;
-  margin-top: 5px;
+  margin-top: 0.4rem;
 }
 .photographer-card__price {
   color: #757575;
   font-size: 1.2rem;
-  margin-top: 5px;
+  margin-top: 0.4rem;
 }
 
 .media-card {
@@ -422,11 +373,11 @@ body {
   gap: 4rem;
 }
 .photographer-header__info-wrapper {
-  flex: 3;
+  min-width: 20%;
 }
 .photographer-header__cta-wrapper {
   text-align: center;
-  flex: 3;
+  flex: 2;
 }
 .photographer-header__img-wrapper {
   text-align: center;

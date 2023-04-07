@@ -4,8 +4,8 @@
   text-align: center;
   font-size: 1.2rem;
   font-weight: $font-weight-bold;
-  width: 170px;
-  height: 70px;
+  width: 11rem;
+  height: 4rem;
   border: none;
   background-color: $color-primary;
   border-radius: 5px;
@@ -45,64 +45,6 @@
     }
     .filled-heart {
       opacity: 1;
-    }
-  }
-}
-
-.dropdown-btn {
-  &__menu-item {
-    position: relative;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: unset;
-
-    &[checked] {
-      display: none;
-    }
-  }
-  &__cta {
-    border-radius: 5px;
-    &::before {
-      display: none; // Remove line for first menu item
-    }
-    &-icon {
-      font-size: 1.2rem;
-      transition: transform 0.2s ease-in-out;
-    }
-  }
-
-  &__menu {
-    display: none;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    overflow: hidden;
-    position: absolute;
-    z-index: 100;
-
-    // Print line decoration between grid items
-    &-item::before {
-      content: "";
-        position: absolute;
-        top: 0;
-        left: 5%;
-        height: 1px;
-        width: 90%;
-        background-color: $color-white;
-    }
-  }
-  &:hover &{
-    &__cta {
-      border-bottom-left-radius: unset;
-      border-bottom-right-radius: unset;
-      &-icon {
-        transform: rotate(180deg);
-      }
-    }
-    
-    &__menu {
-      display: block;
     }
   }
 }

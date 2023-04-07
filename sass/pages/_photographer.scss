@@ -11,12 +11,12 @@
   gap: 4rem;
 
   &__info-wrapper {
-    flex: 3;
+    min-width: 20%;
   }
 
   &__cta-wrapper {
     text-align: center;
-    flex: 3;
+    flex: 2;
   }
 
   &__img-wrapper {

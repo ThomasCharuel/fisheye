@@ -361,8 +361,8 @@ body {
 .photographers-section {
   margin: 4rem 5%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(max(18rem, (100% - 4rem) / 3), 1fr));
+  gap: 2rem 2rem;
 }
 
 .photographer-header {

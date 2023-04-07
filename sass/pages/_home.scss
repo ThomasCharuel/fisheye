@@ -1,6 +1,8 @@
 .photographers-section {
   margin: 4rem 5%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-  gap: 2rem;
+
+  @include fluid-grid(
+    $grid-column-gap: 2rem, 
+    $grid-item-min-width: 18rem,
+    $max-grid-column-count: 3);
 }

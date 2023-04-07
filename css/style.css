@@ -464,6 +464,7 @@ body {
   border-radius: 5px;
   background-color: #DB8876;
   width: 50%;
+  min-width: 26rem;
   padding: 2rem;
   margin: 5% auto;
 }

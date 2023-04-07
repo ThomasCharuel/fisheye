@@ -11,7 +11,7 @@
   max-height: unset;
   overflow: auto;
   background-color: rgba(196, 196, 196, 0.8);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(1rem);
 
   &__container {
     margin: 10vh;
@@ -48,12 +48,12 @@
     @include hover-focus-transition(120%);
     color: $color-primary;
     font-size: 3rem;
-    padding: 20px;
-    margin: -20px;
+    padding: 0.4rem;
+    margin: -1rem;
   }
 
   &__title {
-    margin-top: 10px;
+    margin-top: 1rem;
     grid-area: title;
   }
 

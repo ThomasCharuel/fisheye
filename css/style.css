@@ -399,7 +399,7 @@ body {
 .photographer-header__tagline {
   color: #525252;
   font-size: 1.2rem;
-  margin-top: 18px;
+  margin-top: 1rem;
 }
 .photographer-header__image {
   object-fit: cover;

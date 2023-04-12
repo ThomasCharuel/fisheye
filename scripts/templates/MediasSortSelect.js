@@ -103,10 +103,12 @@ export default class MediasSortSelect {
   getHTML() {
     this.wrapper.innerHTML = `
       <span class="medias-sort-section__label">Trier par</span>
-      <div id="medias-sort-select" class="dropdown">
+      <div 
+        id="medias-sort-select" 
+        class="dropdown">
         <button
+          role="radiogroup"
           aria-expanded="false"
-          role="listbox"
           aria-labelledby="dropdown-selected-choice"
           aria-controls="medias-sort-choices"
           class="dropdown__cta"
@@ -123,6 +125,7 @@ export default class MediasSortSelect {
         >
         ${SORT_TYPES.map((sortType) => `
           <li 
+            role="radio"
             id="sort-by-${sortType.key}"
             ${sortType === this.sortBy ? 'aria-hidden="true" aria-selected="true" aria-checked="true"' : 'aria-selected="false" aria-checked="false"'}>
             <button class="dropdown__cta" id="btn-sort-by-${sortType.key}">${sortType.name}</button>

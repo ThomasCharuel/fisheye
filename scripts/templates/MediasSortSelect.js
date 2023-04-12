@@ -90,9 +90,11 @@ export default class MediasSortSelect {
     const oldSortItem = this.wrapper.querySelector('#medias-sort-choices li[aria-selected="true"]');
     oldSortItem.removeAttribute('aria-hidden');
     oldSortItem.setAttribute('aria-selected', 'false');
+    oldSortItem.setAttribute('aria-checked', 'false');
 
     sortItem.parentElement.setAttribute('aria-hidden', 'true');
     sortItem.parentElement.setAttribute('aria-selected', 'true');
+    sortItem.parentElement.setAttribute('aria-checked', 'true');
 
     this.toggleDropdown();
     this.photographer.changeMediasOrder(this.sortBy.key);
@@ -122,7 +124,7 @@ export default class MediasSortSelect {
         ${SORT_TYPES.map((sortType) => `
           <li 
             id="sort-by-${sortType.key}"
-            ${sortType === this.sortBy ? 'aria-hidden="true" aria-selected="true"' : 'aria-selected="false"'}>
+            ${sortType === this.sortBy ? 'aria-hidden="true" aria-selected="true" aria-checked="true"' : 'aria-selected="false" aria-checked="false"'}>
             <button class="dropdown__cta" id="btn-sort-by-${sortType.key}">${sortType.name}</button>
           </li>`).join('')}
         </ul>

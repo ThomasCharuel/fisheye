@@ -84,7 +84,7 @@ export default class MediasSortSelect {
     // Update display of sort select
     this.wrapper.querySelector('#dropdown-selected-choice').innerHTML = this.sortBy.name;
 
-    this.wrapper.querySelector('#medias-sort-choice').setAttribute('aria-activedescendant', `sort-by-${this.sortBy.key}`);
+    this.wrapper.querySelector('#medias-sort-select').setAttribute('aria-activedescendant', `sort-by-${this.sortBy.key}`);
 
     // Change state for old and new selected choice
     const oldSortItem = this.wrapper.querySelector('#medias-sort-choices li[aria-selected="true"]');
@@ -102,18 +102,20 @@ export default class MediasSortSelect {
 
   getHTML() {
     this.wrapper.innerHTML = `
-      <span class="medias-sort-section__label">Trier par</span>
+      <span id="medias-sort-section__label" class="medias-sort-section__label">Trier par</span>
       <div 
+        role="radiogroup" 
+        aria-labelledby="medias-sort-section__label"
+        aria-activedescendant="sort-by-${this.sortBy.key}"
         id="medias-sort-select" 
         class="dropdown">
         <button
-          role="radiogroup"
           aria-expanded="false"
           aria-labelledby="dropdown-selected-choice"
           aria-controls="medias-sort-choices"
           class="dropdown__cta"
           id="medias-sort-choice"
-          aria-activedescendant="sort-by-${this.sortBy.key}"
+          type="button"
         >
           <span id="dropdown-selected-choice" class="dropdown__cta-text">${this.sortBy.name}</span>
           <i class="dropdown__cta-icon fa-solid fa-chevron-down"></i>

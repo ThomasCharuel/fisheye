@@ -1,3 +1,5 @@
+import { setFocus } from '../utils/utils.js';
+
 const SORT_TYPES = [
   { key: 'likes', name: 'Popularité' },
   { key: 'date', name: 'Date' },
@@ -39,7 +41,7 @@ export default class MediasSortSelect {
     }
 
     // Set focus on dropdownButton
-    dropdownButton.focus();
+    setFocus(dropdownButton);
   }
 
   handleFocusout(e) {
@@ -65,14 +67,14 @@ export default class MediasSortSelect {
       // Shift focus to previous item (if exist)
       if (e.key === 'ArrowUp' && e.target !== menuButtons[0]) {
         const previousItem = menuButtons.at(menuButtons.indexOf(e.target) - 1);
-        previousItem.focus();
+        setFocus(previousItem);
       } else if (e.key === 'ArrowDown' && e.target !== menuButtons.at(-1)) {
         // Shift focus to next item (if exist)
         const nextItem = menuButtons.at(menuButtons.indexOf(e.target) + 1);
-        nextItem.focus();
+        setFocus(nextItem);
       } else if (e.key === 'Escape') {
         this.closeDropdown();
-        dropDownButton.focus();
+        setFocus(dropDownButton);
       }
     }
   }

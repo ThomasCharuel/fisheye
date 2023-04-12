@@ -5,6 +5,7 @@ import PhotographerHeader from '../templates/PhotographerHeader.js';
 import PhotographerInfoSection from '../templates/PhotographerInfoSection.js';
 import PhotographerContactForm from '../templates/PhotographerContactForm.js';
 import MediasSortSelect from '../templates/MediasSortSelect.js';
+import { setFocus } from '../utils/utils.js';
 
 export default function createPhotographer(data) {
   const photographer = new Photographer(data);
@@ -48,8 +49,7 @@ export default function createPhotographer(data) {
     mediaLightbox.replaceChildren();
 
     // Set focus on the media card
-    const mediaCardLink = document.querySelector(`#media-card__link-${media.getId()}`);
-    mediaCardLink.focus();
+    setFocus(document.querySelector(`#media-card__link-${media.getId()}`));
   };
 
   photographer.openMediaLightboxModal = (media) => {
@@ -65,7 +65,7 @@ export default function createPhotographer(data) {
     mediaLightboxElement.showModal();
 
     // Set focus on close lightbox
-    mediaLightboxElement.querySelector('.control-close-btn').focus();
+    setFocus(mediaLightboxElement.querySelector('.control-close-btn'));
   };
 
   photographer.slideLeftMediaLightbox = (media) => {
@@ -77,7 +77,7 @@ export default function createPhotographer(data) {
     // Set focus on slide left or close button
     const controlLeftButton = mediaLightbox.querySelector('.control-left-btn');
     if (controlLeftButton) {
-      controlLeftButton.focus();
+      setFocus(controlLeftButton);
     }
   };
 
@@ -90,7 +90,7 @@ export default function createPhotographer(data) {
     // Set focus on slide right or close button
     const controlRightButton = mediaLightbox.querySelector('.control-right-btn');
     if (controlRightButton) {
-      controlRightButton.focus();
+      setFocus(controlRightButton);
     }
   };
 
@@ -107,8 +107,7 @@ export default function createPhotographer(data) {
     photographerContactFormModal.showModal();
 
     // Set focus on first form field
-    const firstFormInput = photographerContactForm.querySelector('input');
-    firstFormInput.focus();
+    setFocus(photographerContactForm.querySelector('input'));
   };
 
   photographer.closeContactFormModal = () => {
@@ -122,8 +121,7 @@ export default function createPhotographer(data) {
     photographerContactForm.replaceChildren();
 
     // Set focus on open modal button
-    const openModalButton = document.querySelector('.photographer-header__contact-btn');
-    openModalButton.focus();
+    setFocus(document.querySelector('.photographer-header__contact-btn'))
   };
 
   photographer.renderMedias = () => {

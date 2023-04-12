@@ -108,7 +108,7 @@ export default class MediasSortSelect {
           aria-expanded="false"
           role="listbox"
           aria-labelledby="dropdown-selected-choice"
-          aria-controls="medias-sort-types"
+          aria-controls="medias-sort-choices"
           class="dropdown__cta"
           id="medias-sort-choice"
           aria-activedescendant="sort-by-${this.sortBy.key}"

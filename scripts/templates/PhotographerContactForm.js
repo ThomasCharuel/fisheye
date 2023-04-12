@@ -42,7 +42,6 @@ export default class PhotographerContactForm {
     this.wrapper.innerHTML = `
       <div 
         class="contact-form__container"
-        role="document"
         aria-labelledby="contact-form__title">
         <header class="contact-form__header">
             <h2 class="contact-form__header-title" id="contact-form__title">

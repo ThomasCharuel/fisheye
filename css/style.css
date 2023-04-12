@@ -57,7 +57,7 @@ body {
   border-radius: 5px;
 }
 .cta-btn:hover, .cta-btn:focus {
-  transform: scale(110%);
+  transform: scale(1.10);
 }
 .cta-btn:hover, .cta-btn:focus {
   color: #000000;

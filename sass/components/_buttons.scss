@@ -17,7 +17,7 @@
 }
 
 .like-btn {
-  @include hover-focus-transition(120%);
+  @include hover-focus-transition(1.2);
   position: relative;
   display: inline-block;
   height: 1.6rem;

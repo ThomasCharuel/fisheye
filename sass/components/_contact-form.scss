@@ -33,7 +33,7 @@
     }
 
     .close-btn {
-      @include hover-focus-transition(120%);
+      @include hover-focus-transition(1.2);
       color: white;
       font-size: 3.8rem;
       padding: 0 1rem;

@@ -6,7 +6,7 @@
   flex-direction: column;
 
   &__thumbnail-wrapper {
-    @include hover-focus-transition(105%);
+    @include hover-focus-transition(1.05);
     flex: 1;
     border-radius: 5px;
     overflow: hidden;

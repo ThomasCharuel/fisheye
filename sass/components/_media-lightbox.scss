@@ -45,7 +45,7 @@
   .control-left-btn, 
   .control-right-btn, 
   .control-close-btn {
-    @include hover-focus-transition(120%);
+    @include hover-focus-transition(1.20);
     color: $color-primary;
     font-size: 3rem;
     padding: 0.4rem;
